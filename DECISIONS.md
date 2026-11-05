@@ -15,3 +15,6 @@ The initial API is explicitly guard_only. It sends every complaint to a person a
 ## 2026-11-05: native FastAPI deployment probe
 
 The current Vercel connection supports the FastAPI framework. The source includes a Dockerfile for portable reproduction. Native deployment is being checked; a container deployment is not yet verified.
+
+## Archive discovery correction
+The first live intake run failed before parsing because the static storage prefix was not an HTML catalog. The source now discovers archive names from NHTSA's official datasets page, including the observed 2020–2024 and 2025–2026 sets. There is no guessed-name fallback. No model evaluation ran before this change.
