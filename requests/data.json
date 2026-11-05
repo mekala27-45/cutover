@@ -4,5 +4,7 @@
   "source": "NHTSA complaint flat files",
   "public_output": "aggregate evidence only; no complaint text, case identifiers or individual predictions",
   "max_runner_hours": 3,
-  "registration": "evaluation/registration.json"
+  "registration": "evaluation/registration.json",
+  "registration_format": "canonical_json",
+  "attempt": 2
 }
