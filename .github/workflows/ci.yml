@@ -1,0 +1,39 @@
+name: Verify contracts
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["requests/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cutover-ci
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - run: mkdir -p results
+      - run: python scripts/register.py --check
+      - run: python -m pytest --cov=packages --cov-report=json --junitxml=results/tests.xml
+      - run: python scripts/check_gates.py
+      - name: Type and style reports
+        if: always()
+        run: |
+          ruff check packages scripts tests --output-format=json > results/ruff.json || true
+          mypy packages --strict > results/mypy.txt || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification
+          path: |
+            results/tests.xml
+            results/ruff.json
+            results/mypy.txt
+            coverage.json
