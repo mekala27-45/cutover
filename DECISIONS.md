@@ -18,3 +18,6 @@ The current Vercel connection supports the FastAPI framework. The source include
 
 ## Archive discovery correction
 The first live intake run failed before parsing because the static storage prefix was not an HTML catalog. The source now discovers archive names from NHTSA's official datasets page, including the observed 2020–2024 and 2025–2026 sets. There is no guessed-name fallback. No model evaluation ran before this change.
+
+## Pinned source catalog
+The published catalog returns HTTP 403 to the GitHub runner. The current archive names were read from NHTSA's public datasets page on 2026-11-05 and are now pinned in config/source-catalog.json. The runner only requests those official static downloads; it does not guess names or change its identity to defeat the catalog restriction.

@@ -1,5 +1,5 @@
 {
-  "attempt": 3,
-  "reason": "discover_archives_from_official_catalog_and_bound_dedup_memory",
-  "registered_criteria_unchanged": true
+  "attempt": 4,
+  "reason": "use_catalog_names_observed_from_official_download_table",
+  "criteria_unchanged": true
 }

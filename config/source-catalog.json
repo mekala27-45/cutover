@@ -1,0 +1,9 @@
+{
+  "source": "https://www.nhtsa.gov/nhtsa-datasets-and-apis",
+  "observed_at": "2026-11-05",
+  "method": "Names read from official Download Data table; catalog returns 403 to GitHub runner.",
+  "names": [
+    "COMPLAINTS_RECEIVED_2020-2024.zip",
+    "COMPLAINTS_RECEIVED_2025-2026.zip"
+  ]
+}
