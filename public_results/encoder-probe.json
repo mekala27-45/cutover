@@ -1,0 +1,27 @@
+{
+  "mode": "actual_encoder_runtime_probe",
+  "model": "answerdotai/ModernBERT-base",
+  "input_kind": "authored_probe",
+  "task_accuracy": null,
+  "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "license": "apache-2.0",
+  "transformers": "5.22.1",
+  "torch": "2.11.0+cu130",
+  "attention": "sdpa",
+  "dtype": "float16",
+  "status": "passed",
+  "request_count": 10,
+  "request_ms": [
+    3153.622858999938,
+    27.21876099997189,
+    26.644767999982832,
+    26.600345000019843,
+    26.517887000068185,
+    26.62125599999854,
+    20.903904999954648,
+    18.851407000056497,
+    18.85611099999096,
+    18.82830300007754
+  ],
+  "peak_gpu_bytes": 331702784
+}
