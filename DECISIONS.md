@@ -54,3 +54,12 @@ The first full intake did not finish within its initial observation window. Code
 
 ## 2026-11-05: approved runtime credential transfer
 The user approved the recommended scoped connection and HMAC salt setup. Vercel confirmed both encrypted variables for production and preview. No credential value is committed or recorded in public evidence. Deployment remains pending the previously observed free daily quota reset.
+
+## 2026-11-05: JSONL record boundaries
+Actual intake completed, then the floor reader failed on a narrative containing a Unicode line separator. Python str.splitlines splits more than JSONL's LF record delimiter. The reader now iterates physical UTF-8 file lines and reports a line number without including the record in errors. Two regressions pass. Data, labels, thresholds and scoring criteria are unchanged.
+
+## 2026-11-05: observed GPU compatibility
+The previously unavailable Kaggle editor loaded and a T4 session started. ModernBERT-base passed ten authored-input forwards at fp16 with SDPA. Its new classification head is untrained, so no task accuracy is inferred. Encoder and language-model dependencies are kept in separate virtual environments. The Qwen probe outcome remains unverified after loss of browser control.
+
+## 2026-11-05: local execution interruption
+The local terminal rejected the runtime's Windows sandbox path configuration and the browser process could not restart. Remote GitHub connectors remained usable. Verified sources and evidence were preserved through GitHub; no unobserved GPU result or successful live receipt was claimed.

@@ -1,0 +1,11 @@
+{
+  "mode": "software_tests",
+  "source_commit": "380f8f5e3a2066b1ef497f37b54d114fae264847",
+  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42118328917",
+  "tests_passed": 66,
+  "package_statement_coverage": 83.19327731092437,
+  "ruff": "passed",
+  "mypy": "passed",
+  "mypy_source_files": 14,
+  "model_quality_claim": false
+}

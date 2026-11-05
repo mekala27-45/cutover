@@ -1,0 +1,20 @@
+{
+  "mode": "actual_nhtsa_intake_observed",
+  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42115683275",
+  "source_commit": "fef3a3806d79d4490c7b17fe641c966c1b13bc3d",
+  "accepted_component_rows": 618446,
+  "grouped_complaints": 429716,
+  "duplicates": 6691,
+  "post_dedup_counts": {
+    "discovery": 58084,
+    "train": 162629,
+    "development": 32662,
+    "test": 103889,
+    "shadow": 65761
+  },
+  "evidence": "Completed intake step and stage counts in job 127554562959",
+  "limitations": [
+    "Complete aggregate archive is available in artifact 13457141830 but has not been inspected locally.",
+    "No model quality result is included."
+  ]
+}

@@ -1,7 +1,11 @@
 # Model and source status
 
-The TF-IDF floor is implemented and passes a synthetic fit, calibration and serialization test. Its full NHTSA evaluation is not yet promoted. No ModernBERT, DeBERTa, MiniLM, Qwen3 or incumbent model weights have been executed or shipped. Their quality, license compatibility in the deployment and ONNX parity must be checked before promotion. The selected dependency extras do not establish a completed model run.
+The TF-IDF floor is implemented and passes synthetic fit, calibration and serialization tests. Full intake completed, and the corrected actual baseline workflow is training. Its quality results are not yet promoted.
 
-NHTSA complaint data is used as public source material. Its filed labels are not engineering safety findings. This repository republishes no complaint narratives or case identifiers. The pinned official archive names and source layout are recorded separately from completed intake evidence.
+ModernBERT-base executed successfully on one visible Tesla T4 using Transformers 5.22.1, PyTorch 2.11.0+cu130, fp16 and SDPA. The exact revision is 8949b909ec900327062f0ebf497f51aef5e6f0c8, with Apache-2.0 metadata verified before loading. Ten authored-input forward passes produced finite outputs. The classification head was newly initialized, so this proves runtime compatibility only. See public_results/encoder-probe.json. Fine-tuning, calibration, ONNX export, INT8 parity and held-out task evaluation remain outstanding.
 
-Code is Apache-2.0. Model licenses must be recorded against exact model revisions before downloading or deploying those models. The project does not relicense third-party model weights or source data.
+The bounded Qwen3-1.7B and Qwen3-8B-AWQ probes were launched with isolated vLLM dependencies and authored inputs. Their final output was not retrieved because the local browser connection failed. They are not counted as passed. No language-model arm has completed the registered task evaluation, and no model is promoted to the API.
+
+NHTSA complaint data is public source material. Filed labels are not engineering safety findings. Public artifacts contain aggregates, not complaint narratives or case identifiers. Source archive digests and post-deduplication counts are recorded separately from complete training evidence.
+
+Code is Apache-2.0. Each additional model license must be checked against its exact revision before loading or promotion. The project does not relicense third-party weights or data.

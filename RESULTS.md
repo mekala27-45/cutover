@@ -4,7 +4,7 @@ The end-to-end release is incomplete. The site and guard-only API are deployed. 
 
 ## Verified software behavior
 
-The quality run at https://github.com/mekala27-45/cutover/actions/runs/42115683233 passed the contract tests, enforced coverage threshold, Ruff and strict typing. See public_results/service-probe.json for recorded check values and provenance. Synthetic software tests are separate from actual model evaluations.
+The quality run at https://github.com/mekala27-45/cutover/actions/runs/42118328917 passed 66 tests with 83.19% package statement coverage, Ruff and strict typing. See public_results/service-probe.json for recorded check values and provenance. Synthetic software tests are separate from actual model evaluations.
 
 The real-browser check covered every route, source disclosure, example buttons, light/dark themes and a mobile viewport. The live try form returned unavailable and did not claim a receipt. The independent database query confirmed that the runtime role cannot mutate release state.
 
@@ -12,10 +12,10 @@ The real-browser check covered every route, source disclosure, example buttons, 
 
 | Line | Status | Requirement | Evidence |
 | --- | --- | --- | --- |
-| 1 | not done | NHTSA intake | The current data workflow is still running; complete source digests, post-dedup split counts and registered sample evidence are not yet promoted. |
+| 1 | not done | NHTSA intake | Intake completed: 618,446 accepted component rows, 429,716 grouped complaints and 6,691 duplicates removed. public_results/intake-progress.json records observed split counts; complete aggregate and registered sample evidence still need verification. |
 | 2 | not done | Discovery and label noise | The discovery collector exists, but a completed manifest-backed discovery memo and label-noise analysis are missing. |
 | 3 | done | Registration before scoring | evaluation/registration.json locks criteria and plan before real held-out scoring; scripts/register.py --check passes. |
-| 4 | not done | Floor, encoder, ONNX and INT8 | The floor passes synthetic training and serialization tests; real floor results, encoder training and parity evidence remain missing. |
+| 4 | not done | Floor, encoder, ONNX and INT8 | The floor passes synthetic training and serialization tests; ModernBERT passed ten authored-input T4 runtime checks; real floor results, encoder training and parity evidence remain missing. |
 | 5 | not done | Recorded language models | The strict parser is tested; neither registered language-model inference run has completed. |
 | 6 | not done | Calibrated cascade | The safety guard and no-close property tests pass; real development operating points and interior comparisons remain pending. |
 | 7 | not done | Every-arm evaluation | Independent grading, bootstrap and BH code exist; qualifying held-out results for all arms are absent. |
@@ -35,8 +35,8 @@ The real-browser check covered every route, source disclosure, example buttons, 
 
 The user approved the scoped database connection and secret salt transfer on 2026-11-05. Both encrypted variables are configured for the Cutover Vercel project's production and preview environments, pending a new deployment. Vercel also rejected the latest deployment because the free daily deployment allowance was exhausted. The serving commit is recorded separately from main.
 
-Kaggle is signed in and displayed free T4 eligibility, but the notebook editor remained loading after a reload with Start session disabled. No GPU model probe, training or inference was started. No encoder or language-model performance, savings, latency SLO or rollout success is established.
+Kaggle became available and the T4 hardware and ModernBERT probes passed. public_results/encoder-probe.json records the exact Apache-2.0 revision, pinned Transformers version and ten authored-input forwards. The classifier head is untrained; these are compatibility results, not task accuracy. Qwen3-1.7B and Qwen3-8B-AWQ probes were launched but their outcome could not be retrieved after the local browser connection failed. The draft GPU session may still be active and should be stopped when idle. No language-model quality, savings, latency SLO or rollout success is established.
 
-The full data run was restarted after replacing a potentially expensive duplicate-candidate ordering. The archive downloads, their digests and pre-deduplication counts are now observed in data/complaints.lock.json. Post-deduplication counts and model results remain unavailable. There are no actual injection counts, slice gaps, label-noise estimates, interior-test results or planted-release trips to report yet.
+The intake run completed in workflow 42115683275. Its baseline then failed because str.splitlines() treats Unicode separators inside valid JSON strings as record boundaries. Commit eb58b77 fixes the reader and adds regression tests that also prevent record text from appearing in parse errors. Workflow 42118098139 passed intake again and reached actual baseline training; final model results are not yet available. There are no actual injection counts, slice gaps, label-noise estimates, interior-test results or planted-release trips to report yet.
 
 Stretch work is not done and is not counted toward the mandatory checklist.
