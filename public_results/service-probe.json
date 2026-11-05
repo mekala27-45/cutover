@@ -7,9 +7,15 @@
   "source_commit": "30608fb0bf1947bc76132d138cb117090d475be8",
   "latest_deployment": "blocked_free_daily_quota",
   "database_env": "pending_explicit_credential_transfer_approval",
-  "ci_run": "https://github.com/mekala27-45/cutover/actions/runs/42114446885",
-  "tests": 61,
-  "coverage_percent": 83.27464788732394,
-  "mypy": "strict_passed_13_packages",
-  "ruff": "remaining_diagnostics_being_fixed"
+  "ci_run": "https://github.com/mekala27-45/cutover/actions/runs/42114808419",
+  "tests": 63,
+  "coverage_percent": 83.16498316498317,
+  "mypy": "strict_passed_14_packages",
+  "ruff": "passed",
+  "database_privileges": {
+    "receipts_insert": true,
+    "budget_update": true,
+    "release_update": false,
+    "switch_history_insert": false
+  }
 }

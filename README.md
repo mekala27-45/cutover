@@ -4,6 +4,24 @@ Cutover is in development. Mandatory data, model, evaluation, deployment, rollou
 
 The original specification is in [docs/SPEC.md](docs/SPEC.md). Criteria and the evaluation plan are registered before scoring. Actual NHTSA results, recorded model inference and synthetic software tests remain separate.
 
+## Live surfaces
+
+[Evidence dashboard](https://mekala27-45.github.io/cutover/) · [API health](https://cutover-api.vercel.app/health) · [Full completion checklist](RESULTS.md)
+
+## Implementation map
+
+| Capability | Implementation | Evidence state |
+| --- | --- | --- |
+| Strict decision contracts | packages/core | Behavioral tests passing |
+| Privacy boundary and temporal intake | packages/intake | Actual intake still running |
+| TF-IDF training and calibration | packages/floor | Synthetic fit and round-trip tested |
+| Model output validation | packages/llm | Parser tested; model runs absent |
+| Safety and escalation | packages/cascade | Property tests passing; real thresholds pending |
+| Independent scoring and shadow prices | packages/evaluation | Tested mechanics; actual comparisons pending |
+| Rollback and monitoring | packages/release | Synthetic tests; real drill pending |
+| Transactional receipts | packages/api | Transaction tests; live credentials pending |
+| Evidence sheet | web | Published and checked in a real browser |
+
 ## Run
 
 Use Python 3.12. Install with `pip install -e '.[dev]'`, then run `python scripts/register.py --check`, `pytest`, and `python scripts/check_gates.py`.
