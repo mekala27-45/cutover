@@ -1,6 +1,7 @@
 """Temporal deduplication with exact verification after MinHash candidates."""
 from __future__ import annotations
 import hashlib
+import math
 from collections import defaultdict
 from typing import Any
 from packages.core import Complaint, digest
@@ -18,9 +19,9 @@ def temporal_dedup(rows: list[Complaint]) -> tuple[dict[str, list[Complaint]], l
     # LSH is a retrieval optimization. The split audit independently checks candidates
     # using exact Jaccard and a lossless token-overlap inverted index.
     index = MinHashLSH(threshold=0.8, num_perm=128)
-    tokens: dict[str, frozenset[str]] = {}
-    inverted: dict[str, set[str]] = defaultdict(set)
-    previous: dict[str, str] = {}
+    retained: dict[str, Complaint] = {}
+    lengths: dict[str, int] = {}
+    inverted: dict[bytes, set[str]] = defaultdict(set)
     exact: dict[str, str] = {}
     output: dict[str, list[Complaint]] = defaultdict(list)
     drops = []
@@ -29,23 +30,29 @@ def temporal_dedup(rows: list[Complaint]) -> tuple[dict[str, list[Complaint]], l
         if split is None: continue
         sig = shingles(row.feature.narrative)
         mh = MinHash(num_perm=128, seed=23)
-        for s in sorted(sig): mh.update(s.encode())
+        mh.update_batch([s.encode() for s in sorted(sig)])
+        # Under one global token order, Jaccard >= .9 implies intersecting
+        # prefixes of length |S|-ceil(.9*|S|)+1. Hash collisions only add
+        # candidates: final similarity always uses original shingle strings.
+        prefix = sorted(sig)[:len(sig)-math.ceil(.9*len(sig))+1]
+        keys = [hashlib.blake2b(s.encode(),digest_size=8).digest() for s in prefix]
         candidates = set(index.query(mh))
         # Exact overlap candidates ensure MinHash false negatives cannot leak duplicates.
-        for s in sig: candidates.update(inverted[s])
+        for key in keys: candidates.update(inverted[key])
         match = exact.get(row.text_digest)
         if match is None:
             match = next((k for k in sorted(candidates)
-                          if jaccard(sig, tokens[k]) >= 0.9), None)
+                          if .9*len(sig) <= lengths[k] <= len(sig)/.9
+                          and jaccard(sig, shingles(retained[k].feature.narrative)) >= 0.9), None)
         if match is not None:
             drops.append({"odino": row.odino, "reason": "duplicate", "earlier": match})
             continue
         output[split].append(row)
-        tokens[row.odino] = sig
-        previous[row.odino] = split
+        retained[row.odino] = row
+        lengths[row.odino] = len(sig)
         exact[row.text_digest] = row.odino
         index.insert(row.odino, mh)
-        for s in sig: inverted[s].add(row.odino)
+        for key in keys: inverted[key].add(row.odino)
     return dict(output), drops
 
 def registered_sample(rows: list[Complaint], count: int, seed: int = 23) -> list[str]:
