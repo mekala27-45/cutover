@@ -13,10 +13,11 @@ from packages.intake import Quarantine, group_rows, parse_line, label_map, apply
 from packages.intake.dedup import temporal_dedup, registered_sample
 
 BASE = "https://static.nhtsa.gov/odi/ffdd/cmpl/"
+CATALOG = "https://www.nhtsa.gov/nhtsa-datasets-and-apis"
 MAX_ARCHIVE = 600_000_000
 
 def get(url: str) -> bytes:
-    if not url.startswith(BASE): raise ValueError("source_not_allowlisted")
+    if not (url.startswith(BASE) or url == CATALOG): raise ValueError("source_not_allowlisted")
     req = urllib.request.Request(url,headers={"User-Agent":"Cutover-portfolio-source-check/0.1"})
     with urllib.request.urlopen(req,timeout=90) as response:
         data = response.read(MAX_ARCHIVE+1)
@@ -27,7 +28,7 @@ def fetch(root: Path) -> dict:
     layout = get(BASE+"CMPL.txt")
     if b"COMPLAINTS_RECEIVED_YYYY-YYYY.zip" not in layout:
         raise ValueError("unrecognized_source_layout_contract")
-    listing = get(BASE).decode("utf-8",errors="replace")
+    listing = get(CATALOG).decode("utf-8",errors="replace")
     names = sorted(set(re.findall(r"COMPLAINTS_RECEIVED_\d{4}-\d{4}\.zip",listing,re.I)))
     names = [n for n in names if int(re.search(r"(\d{4})-(\d{4})",n)[2])>=2020]
     if not names: raise ValueError("archive_names_not_discovered")
@@ -72,6 +73,7 @@ def fetch(root: Path) -> dict:
         split_digests[name] = hashlib.sha256(payload.encode()).hexdigest()
     result = {"mode":"actual_nhtsa_intake","sources":locks,
               "layout_document_sha256":hashlib.sha256(layout).hexdigest(),
+              "catalog_sha256":hashlib.sha256(listing.encode()).hexdigest(),
               "layouts_seen":dict(layouts),"counts":{k:len(v) for k,v in splits.items()},
               "dropped":dict(dropped),"duplicate_count":len(duplicates),
               "label_mapping":mapping,"label_mapping_digest":digest(mapping),
