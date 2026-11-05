@@ -1,0 +1,6 @@
+private
+results
+.git
+.venv
+node_modules
+input
