@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-05",
+  "site": "https://mekala27-45.github.io/cutover/",
+  "mode": "actual_browser",
+  "routes_checked": [
+    "/",
+    "criteria",
+    "discovery",
+    "arms",
+    "cascade",
+    "safety",
+    "shadow",
+    "canary",
+    "handover",
+    "cost",
+    "try",
+    "data",
+    "report"
+  ],
+  "desktop": true,
+  "mobile_viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "document_scroll_width": 375,
+  "document_client_width": 375,
+  "light_dark_toggle": "passed",
+  "source_disclosure": "passed",
+  "example_buttons": "passed",
+  "triage_unavailable_state": "passed_503_no_confirmed_receipt",
+  "triage_success_state": "not_verified_database_credentials_pending",
+  "live_model": "not_promoted",
+  "limitations": [
+    "No successful live receipt was observed.",
+    "These are manual browser checks, not automated Playwright regression coverage."
+  ]
+}

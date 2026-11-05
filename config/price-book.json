@@ -1,0 +1,54 @@
+{
+  "source_repository": "mekala27-45/mlspend",
+  "source_commit": "4fafd79",
+  "source_path": "data/prices/book.json",
+  "as_of": "2026-11-05",
+  "pricing": "shadow_not_invoice",
+  "rows": [
+    {
+      "effective_date": "2021-11-01",
+      "id": "azure-cpu",
+      "provider": "Azure",
+      "region": "eastus",
+      "retrieved_date": "2026-11-01",
+      "service": "Compute",
+      "sku": "Standard_D4s_v5",
+      "source_digest": "58baf7d360e5a6cfb8b0545d0fd9bd16f5e42048a24bd77400c865a1b7429b9b",
+      "source_kind": "provider_response",
+      "source_url": "https://prices.azure.com/api/retail/prices?%24filter=armSkuName+eq+%27Standard_D4s_v5%27+and+armRegionName+eq+%27eastus%27&api-version=2023-01-01-preview",
+      "term": "on_demand",
+      "unit": "hour",
+      "usd": "0.192"
+    },
+    {
+      "effective_date": "2021-11-01",
+      "id": "azure-t4",
+      "provider": "Azure",
+      "region": "eastus",
+      "retrieved_date": "2026-11-01",
+      "service": "Compute",
+      "sku": "Standard_NC4as_T4_v3",
+      "source_digest": "98d521c673ebffde09ea4de667cba1d67d4557f9b512cc9950ee7f6b07fa1931",
+      "source_kind": "provider_response",
+      "source_url": "https://prices.azure.com/api/retail/prices?%24filter=armSkuName+eq+%27Standard_NC4as_T4_v3%27+and+armRegionName+eq+%27eastus%27&api-version=2023-01-01-preview",
+      "term": "on_demand",
+      "unit": "hour",
+      "usd": "0.526"
+    },
+    {
+      "effective_date": "2026-11-01",
+      "id": "azure-t4-spot",
+      "provider": "Azure",
+      "region": "eastus",
+      "retrieved_date": "2026-11-01",
+      "service": "Compute",
+      "sku": "Standard_NC4as_T4_v3",
+      "source_digest": "98d521c673ebffde09ea4de667cba1d67d4557f9b512cc9950ee7f6b07fa1931",
+      "source_kind": "provider_response",
+      "source_url": "https://prices.azure.com/api/retail/prices?%24filter=armSkuName+eq+%27Standard_NC4as_T4_v3%27+and+armRegionName+eq+%27eastus%27&api-version=2023-01-01-preview",
+      "term": "Consumption",
+      "unit": "hour",
+      "usd": "0.164059"
+    }
+  ]
+}

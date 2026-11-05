@@ -1,5 +1,6 @@
 """Transaction mechanics with an independent spy, not a live persistence claim."""
-from datetime import datetime, timezone
+
+from datetime import UTC, datetime
 
 import pytest
 
@@ -29,11 +30,11 @@ class Cursor:
     def fetchone(self):
         if "release_state" in self.statement:
             state = ("a" * 64, None, 0.0, False, 7)
-            return state + (datetime.now(timezone.utc),) if "updated_at" in self.statement else state
+            return state + (datetime.now(UTC),) if "updated_at" in self.statement else state
         return None if self.exhausted else (1,)
 
     def fetchall(self):
-        return [(True, "synthetic kill test", datetime.now(timezone.utc), 7)]
+        return [(True, "synthetic kill test", datetime.now(UTC), 7)]
 
 
 class Connection:
@@ -76,7 +77,9 @@ def test_receipt_commits_before_return_and_omits_text(monkeypatch):
 def test_insert_failure_rolls_back_and_refuses_response(monkeypatch):
     connection = setup(monkeypatch, fail_insert=True)
     with pytest.raises(store.StorageUnavailable):
-        store.triage(Feature(narrative="An authored narrative for persistence failure."), "192.0.2.2")
+        store.triage(
+            Feature(narrative="An authored narrative for persistence failure."), "192.0.2.2"
+        )
     assert connection.rolled_back and not connection.committed
 
 

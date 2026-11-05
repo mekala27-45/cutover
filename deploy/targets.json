@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/mekala27-45/cutover",
+  "site": "https://mekala27-45.github.io/cutover/",
+  "api": "https://cutover-api.vercel.app",
+  "vercel_project_id": "prj_ZrGBzHvjOqkqgHfM2j0h81enVwJv",
+  "vercel_team_id": "team_NNcxgB3J9dHQnUJYJJYvRMda",
+  "database_project_id": "purple-frost-78192035",
+  "database_branch_id": "br-square-fog-bdyalwhk",
+  "database": "cutover",
+  "api_role": "cutover_api",
+  "credential_values": "not_committed"
+}
