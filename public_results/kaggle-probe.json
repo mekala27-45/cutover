@@ -1,15 +1,22 @@
 {
-  "date": "2026-11-05",
-  "mode": "browser_availability_check",
+  "mode": "actual_gpu_availability",
+  "python": "3.13.16",
+  "cuda_available": true,
+  "cuda_runtime": "13.0",
+  "visible_devices": 1,
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.20.2",
+    "vllm": null,
+    "numpy": "2.1.3",
+    "onnx": "1.23.2",
+    "onnxruntime": null
+  },
+  "gpu_inventory": [
+    "Tesla T4, 580.178.04, 15360 MiB",
+    "Tesla T4, 580.178.04, 15360 MiB"
+  ],
   "notebook": "https://www.kaggle.com/code/mekalaajay/cutover-compute-probe/edit",
-  "signed_in": true,
-  "accelerator": "GPU T4 x2",
-  "displayed_remaining_hours": 21,
-  "editor": "loading_after_reload",
-  "start_session_enabled": false,
-  "model_probe_executed": false,
-  "limitations": [
-    "Visible GPU eligibility does not establish a successful runtime or model probe.",
-    "No GPU training or inference was started."
-  ]
+  "date": "2026-11-05",
+  "model_execution": false
 }
