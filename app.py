@@ -55,13 +55,13 @@ def releases():
 
 @app.get("/v1/criteria")
 def criteria():
-    path=ROOT/"results/manifest.json"
+    path=ROOT/"public_results/manifest.json"
     if not path.exists(): raise HTTPException(503,detail="evidence_manifest_unavailable")
     return {"criteria":json.loads(path.read_text())["criteria"],"statement":STATEMENT}
 
 @app.get("/v1/shadow")
 def shadow():
-    path=ROOT/"results/shadow.json"
+    path=ROOT/"public_results/shadow.json"
     if not path.exists():
         return {"status":"not_run","rows":[],"reason":"No promoted shadow evaluation.",
                 "statement":STATEMENT}
