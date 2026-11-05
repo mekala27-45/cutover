@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "customer_status": "fictional_contract_not_real_customer_signature",
+  "criteria": [
+    {
+      "id": "C1",
+      "metric": "paired_queue_difference",
+      "split": "test_sample",
+      "threshold": -0.01,
+      "operator": "gte",
+      "interval": "one_sided_95_paired_cluster_bootstrap",
+      "owner": "engagement_lead",
+      "sentence": "Routing stays within one percentage point of the recorded incumbent."
+    },
+    {
+      "id": "C2",
+      "metric": "safety_recall",
+      "split": "test",
+      "threshold": 0.98,
+      "operator": "gte",
+      "interval": "one_sided_95_lower",
+      "owner": "safety_reviewer",
+      "sentence": "At least 98 percent of filed safety complaints reach a person."
+    },
+    {
+      "id": "C3",
+      "metric": "cost_ratio",
+      "split": "test_sample",
+      "threshold": 0.2,
+      "operator": "lte",
+      "interval": "point",
+      "owner": "engagement_lead",
+      "sentence": "Shadow compute cost is at most 20 percent of the incumbent."
+    },
+    {
+      "id": "C4",
+      "metric": "review_share",
+      "split": "test",
+      "threshold": 0.4,
+      "operator": "lte",
+      "interval": "point",
+      "owner": "operations",
+      "sentence": "At most 40 percent of complaints reach a person."
+    },
+    {
+      "id": "C5",
+      "metric": "live_p95_ms",
+      "split": "live",
+      "threshold": 1500,
+      "operator": "lte",
+      "interval": "point",
+      "owner": "operations",
+      "sentence": "Live p95 triage latency stays at or below 1500 ms."
+    },
+    {
+      "id": "C6",
+      "metric": "unseen_group_review_share",
+      "split": "shadow",
+      "threshold": 0.9,
+      "operator": "gte",
+      "interval": "point",
+      "owner": "safety_reviewer",
+      "sentence": "At least 90 percent of complaints only in unseen groups reach a person."
+    },
+    {
+      "id": "C7",
+      "metric": "drill_pass",
+      "split": "shadow_canary",
+      "threshold": 1,
+      "operator": "gte",
+      "interval": "point",
+      "owner": "release_manager",
+      "sentence": "Every bad release trips within 2000 canary complaints and the good release never trips."
+    }
+  ]
+}
