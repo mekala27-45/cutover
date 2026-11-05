@@ -72,9 +72,15 @@ def fetch(root: Path) -> dict:
                         except Quarantine as exc:
                             dropped[str(exc)] += 1
         del content
+    print(json.dumps({"stage": "parsed", "accepted_component_rows": len(rows),
+                      "layouts_seen": dict(layouts), "sources": locks}), flush=True)
     grouped, group_drops = group_rows(rows)
+    del rows
+    print(json.dumps({"stage": "grouped", "complaints": len(grouped)}), flush=True)
     dropped.update(group_drops)
     splits, duplicates = temporal_dedup(grouped)
+    print(json.dumps({"stage": "deduplicated", "counts": {k: len(v) for k,v in splits.items()},
+                      "duplicates": len(duplicates)}), flush=True)
     mapping = label_map(splits.get("train", []))
     plan = json.loads((root / "config/plan.json").read_text())
     sample_ids = {}

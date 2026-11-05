@@ -1,4 +1,5 @@
 """Shadow compute prices and explicit analyst-minute assumptions."""
+
 from __future__ import annotations
 
 import math
@@ -26,8 +27,9 @@ def compute_cost(seconds: float, count: int, price_row: dict[str, Any]) -> dict[
     }
 
 
-def analyst_minutes(rows: list[Complaint], decisions: dict[str, Decision],
-                    safety_miss: float) -> dict[str, Any]:
+def analyst_minutes(
+    rows: list[Complaint], decisions: dict[str, Decision], safety_miss: float
+) -> dict[str, Any]:
     if not rows or safety_miss < 0 or not math.isfinite(safety_miss):
         raise ValueError("invalid_roi_population")
     if {r.odino for r in rows} != set(decisions):
@@ -42,8 +44,11 @@ def analyst_minutes(rows: list[Complaint], decisions: dict[str, Decision],
             missed_safety += int(row.label.safety)
     minutes = review * 3 + misroutes * 6 + missed_safety * safety_miss
     return {
-        "count": len(rows), "reviewed": review, "misroutes": misroutes,
-        "missed_safety": missed_safety, "assumed_safety_miss_minutes": safety_miss,
+        "count": len(rows),
+        "reviewed": review,
+        "misroutes": misroutes,
+        "missed_safety": missed_safety,
+        "assumed_safety_miss_minutes": safety_miss,
         "analyst_minutes_per_thousand": minutes / len(rows) * 1000,
         "interpretation": "estimate_under_registered_error_costs",
     }

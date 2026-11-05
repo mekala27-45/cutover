@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import math
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 from packages.core import Complaint, digest
 from packages.intake import normalize, split_name
@@ -27,6 +27,9 @@ def temporal_dedup(
     # LSH is a retrieval optimization. The split audit independently checks candidates
     # using exact Jaccard and a lossless token-overlap inverted index.
     index = MinHashLSH(threshold=0.8, num_perm=128)
+    # Rare-first ordering avoids candidate floods from common boilerplate.
+    # One corpus-wide order preserves the exact prefix-filter guarantee.
+    frequency = Counter(token for row in rows for token in shingles(row.feature.narrative))
     retained: dict[str, Complaint] = {}
     lengths: dict[str, int] = {}
     inverted: dict[bytes, set[str]] = defaultdict(set)
@@ -43,7 +46,9 @@ def temporal_dedup(
         # Under one global token order, Jaccard >= .9 implies intersecting
         # prefixes of length |S|-ceil(.9*|S|)+1. Hash collisions only add
         # candidates: final similarity always uses original shingle strings.
-        prefix = sorted(sig)[: len(sig) - math.ceil(0.9 * len(sig)) + 1]
+        prefix = sorted(sig, key=lambda token: (frequency[token], token))[
+            : len(sig) - math.ceil(0.9 * len(sig)) + 1
+        ]
         keys = [hashlib.blake2b(s.encode(), digest_size=8).digest() for s in prefix]
         candidates = set(index.query(mh))
         # Exact overlap candidates ensure MinHash false negatives cannot leak duplicates.

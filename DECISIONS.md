@@ -21,3 +21,33 @@ The first live intake run failed before parsing because the static storage prefi
 
 ## Pinned source catalog
 The published catalog returns HTTP 403 to the GitHub runner. The current archive names were read from NHTSA's public datasets page on 2026-11-05 and are now pinned in config/source-catalog.json. The runner only requests those official static downloads; it does not guess names or change its identity to defeat the catalog restriction.
+
+## 2026-11-05: lossless deduplication candidates
+The initial full-overlap index could compare common phrases across most of the corpus. The replacement uses global-order prefix intersections at the registered Jaccard threshold, alongside MinHash LSH, and still verifies candidates with the original shingles. Hash collisions can only add candidates.
+
+## 2026-11-05: empirical bootstrap counts
+The bootstrap now samples multinomial counts over distinct observed metric values. This preserves the empirical resampling distribution for complaint-level binary and paired metrics without allocating a resample-by-population array. The resample count and seed in config/plan.json are unchanged.
+
+## 2026-11-05: scoped runtime role
+A direct database privilege query confirmed that cutover_api can insert receipts and update its request budget, but cannot update release_state or insert switch_history. The runtime cannot approve its own deployment.
+
+## 2026-11-05: committed receipt before response
+The API transaction owns both the hourly budget increment and receipt insert. A failed insert rolls back both and returns unavailable. tests/test_storage_contract.py checks ordering, rollback, and the absence of the narrative and client address in SQL parameters.
+
+## 2026-11-05: free deployment ceiling
+Vercel returned api-deployments-free-per-day after its free deployment allowance was exhausted. The source remains ahead of the serving commit. No paid upgrade was attempted; deployment remains blocked until the quota resets.
+
+## 2026-11-05: explicit evidence absence
+The public manifest marks all acceptance criteria not_shown while required model evidence is missing. The site uses empty evidence states rather than presenting fixture performance as a model result. The actual browser check observed this on all routes.
+
+## 2026-11-05: price provenance
+The shadow price rows come from mlspend at commit 4fafd79. That book contains two T4 spot rows with the same id. config/price-book.json selects the latest effective date on or before the analysis date and retains its source digest. No measured throughput or cost-saving claim follows from the price row alone.
+
+## 2026-11-05: quality gates as failures
+After behavioral tests reached the required coverage level and strict typing passed, CI was changed to fail on coverage below the threshold, Ruff errors, or strict type errors. Diagnostic output remains available so a green test count does not conceal quality failures.
+
+## 2026-11-05: batched source changes
+Later changes use a Git tree and a checked branch update to publish one coherent commit. Earlier single-file updates created unnecessary partial-build cancellations. Public history remains intact.
+
+## 2026-11-05: rare-first prefix ordering
+The first full intake did not finish within its initial observation window. Code inspection identified common boilerplate as a potential source of excessive prefix candidates under lexical ordering. Prefixes now use one corpus-wide frequency order with deterministic lexical ties. The Jaccard guarantee is unchanged. Progress output contains stage names, counts and source digests only. The obsolete run is cancelled to preserve the runner budget.

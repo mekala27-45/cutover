@@ -1,5 +1,5 @@
 {
-  "attempt": 4,
-  "reason": "use_catalog_names_observed_from_official_download_table",
+  "attempt": 5,
+  "reason": "rare_first_lossless_deduplication_after_slow_initial_full_run",
   "criteria_unchanged": true
 }

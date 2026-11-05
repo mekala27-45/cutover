@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-05",
+  "mode": "browser_availability_check",
+  "notebook": "https://www.kaggle.com/code/mekalaajay/cutover-compute-probe/edit",
+  "signed_in": true,
+  "accelerator": "GPU T4 x2",
+  "displayed_remaining_hours": 21,
+  "editor": "loading_after_reload",
+  "start_session_enabled": false,
+  "model_probe_executed": false,
+  "limitations": [
+    "Visible GPU eligibility does not establish a successful runtime or model probe.",
+    "No GPU training or inference was started."
+  ]
+}

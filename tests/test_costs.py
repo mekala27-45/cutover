@@ -7,8 +7,13 @@ from tests.test_contracts import T, feature, line, pred
 
 
 def test_shadow_hour_units_and_source():
-    row = {"unit": "hour", "usd": "0.192", "id": "cpu",
-           "effective_date": "2026-11-01", "source_digest": "a" * 64}
+    row = {
+        "unit": "hour",
+        "usd": "0.192",
+        "id": "cpu",
+        "effective_date": "2026-11-01",
+        "source_digest": "a" * 64,
+    }
     value = compute_cost(3600, 1000, row)
     assert value["usd_per_thousand"] == pytest.approx(0.192)
     assert value["pricing"] == "shadow"
