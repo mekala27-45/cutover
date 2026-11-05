@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "seed": 23,
+  "created_on": "2026-11-05",
+  "labels": {
+    "component": "COMPDESC before first colon",
+    "min_train": 500,
+    "safety": "CRASH=Y or FIRE=Y or INJURED>0 or DEATHS>0"
+  },
+  "splits": {
+    "train": [
+      "2021-01-01",
+      "2023-12-31"
+    ],
+    "development": [
+      "2024-01-01",
+      "2024-06-30"
+    ],
+    "test": [
+      "2024-07-01",
+      "2025-12-31"
+    ],
+    "shadow": [
+      "2026-01-01",
+      "2026-12-31"
+    ]
+  },
+  "samples": {
+    "development": 1000,
+    "test": 3000,
+    "shadow": 2000,
+    "strata": "received_month and first sorted filed group",
+    "rule": "proportional largest remainder, sha256 rank"
+  },
+  "costs_minutes": {
+    "misroute": 6,
+    "review": 3,
+    "safety_miss": 600,
+    "sensitivity": [
+      300,
+      1200
+    ]
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "unit": "ODINO",
+    "seed": 23
+  },
+  "threshold_grids": {
+    "routing": [
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "safety": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "out_of_scope": [
+      0.1,
+      0.2,
+      0.3
+    ]
+  },
+  "monitors": {
+    "window": 500,
+    "audit_delay_days": 30,
+    "safety_recall_min": 0.98,
+    "agreement_min": 0.9,
+    "review_share_delta": 0.15,
+    "safety_flag_delta": 0.1,
+    "psi_max": 0.25,
+    "trip": "safety alone or two other alarms"
+  },
+  "canary": {
+    "weight": 0.1,
+    "promote_after": 3000,
+    "trip_by": 2000,
+    "assignment": "sha256 first 64 bits divided by 2^64"
+  },
+  "budgets": {
+    "gpu_hours": 4,
+    "runner_hours": 6,
+    "priority": "goodhart then fastpath then cutover"
+  },
+  "arms": [
+    "floor",
+    "encoder",
+    "small_recorded",
+    "incumbent_recorded",
+    "cascade",
+    "floor_cascade"
+  ],
+  "status": "registered_before_scoring"
+}
