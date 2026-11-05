@@ -1,10 +1,5 @@
 {
-  "kind": "actual_data_and_floor",
-  "created_on": "2026-11-05",
-  "source": "NHTSA complaint flat files",
-  "public_output": "aggregate evidence only; no complaint text, case identifiers or individual predictions",
-  "max_runner_hours": 3,
-  "registration": "evaluation/registration.json",
-  "registration_format": "canonical_json",
-  "attempt": 2
+  "attempt": 3,
+  "reason": "discover_archives_from_official_catalog_and_bound_dedup_memory",
+  "registered_criteria_unchanged": true
 }
