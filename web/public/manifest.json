@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "project": "cutover",
+  "status": "in_progress",
+  "criteria": [
+    {
+      "id": "C1",
+      "sentence": "Routing stays within one percentage point of the recorded incumbent.",
+      "threshold": -0.01,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    },
+    {
+      "id": "C2",
+      "sentence": "At least 98 percent of filed safety complaints reach a person.",
+      "threshold": 0.98,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    },
+    {
+      "id": "C3",
+      "sentence": "Shadow compute cost is at most 20 percent of the incumbent.",
+      "threshold": 0.2,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    },
+    {
+      "id": "C4",
+      "sentence": "At most 40 percent of complaints reach a person.",
+      "threshold": 0.4,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    },
+    {
+      "id": "C5",
+      "sentence": "Live p95 triage latency stays at or below 1500 ms.",
+      "threshold": 1500,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    },
+    {
+      "id": "C6",
+      "sentence": "At least 90 percent of complaints only in unseen groups reach a person.",
+      "threshold": 0.9,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    },
+    {
+      "id": "C7",
+      "sentence": "Every bad release trips within 2000 canary complaints and the good release never trips.",
+      "threshold": 1,
+      "verdict": "not_shown",
+      "evidence": null,
+      "reason": "No qualifying promoted evaluation is available."
+    }
+  ],
+  "metrics": [],
+  "arms": [
+    {
+      "arm": "floor",
+      "status": "not_run",
+      "metrics": null
+    },
+    {
+      "arm": "encoder",
+      "status": "not_run",
+      "metrics": null
+    },
+    {
+      "arm": "small_recorded",
+      "status": "not_run",
+      "metrics": null
+    },
+    {
+      "arm": "incumbent_recorded",
+      "status": "not_run",
+      "metrics": null
+    },
+    {
+      "arm": "cascade",
+      "status": "not_run",
+      "metrics": null
+    },
+    {
+      "arm": "floor_cascade",
+      "status": "not_run",
+      "metrics": null
+    }
+  ],
+  "limitations": [
+    "No fitted encoder or recorded language model has been promoted.",
+    "The API currently operates in guard-only mode.",
+    "No real-data quality or savings claim is established."
+  ],
+  "manifest_digest": "e5b272b51750da23565706df5e3139fdb4cb3c402cba05510ae483779100e244"
+}
+
