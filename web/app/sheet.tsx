@@ -34,6 +34,7 @@ export default function Sheet({section}:{section:string}){
  const [manifest,setManifest]=useState<Manifest|null>(null);
  const [loadError,setLoadError]=useState("");
  const [dark,setDark]=useState(false);
+ const [themeReady,setThemeReady]=useState(false);
  const [text,setText]=useState("Smoke came from the engine while the vehicle was being driven.");
  const [busy,setBusy]=useState(false);
  const [error,setError]=useState("");
@@ -42,7 +43,8 @@ export default function Sheet({section}:{section:string}){
  const [apiStatus,setApiStatus]=useState("Checking API");
  const api=process.env.NEXT_PUBLIC_API_URL||"";
  useEffect(()=>{readJson("/cutover/manifest.json").then(setManifest).catch(()=>setLoadError("Evidence could not be loaded. Reload to retry."));},[]);
- useEffect(()=>{document.documentElement.dataset.theme=dark?"dark":"light";},[dark]);
+ useEffect(()=>{setDark(localStorage.getItem("cutover-theme")==="dark");setThemeReady(true);},[]);
+ useEffect(()=>{if(themeReady){document.documentElement.dataset.theme=dark?"dark":"light";localStorage.setItem("cutover-theme",dark?"dark":"light");}},[dark,themeReady]);
  useEffect(()=>{if(!api){setApiStatus("API connection pending");return;}readJson(api+"/health").then(v=>setApiStatus(v.model_ready?"Model ready":"Guard only")).catch(()=>setApiStatus("API unavailable"));},[api]);
  async function submit(){
   setBusy(true);setError("");setReceipt(null);

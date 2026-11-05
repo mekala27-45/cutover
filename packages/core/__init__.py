@@ -58,8 +58,13 @@ class Complaint(StrictModel):
 
 Action = Literal["route", "send_to_analyst"]
 Reason = Literal[
-    "confident_route", "safety_keyword", "safety_probability", "out_of_scope",
-    "incumbent_required", "malformed_output", "model_unavailable",
+    "confident_route",
+    "safety_keyword",
+    "safety_probability",
+    "out_of_scope",
+    "incumbent_required",
+    "malformed_output",
+    "model_unavailable",
 ]
 
 

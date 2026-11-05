@@ -7,7 +7,6 @@ from typing import Any
 
 from pydantic import Field
 
-from packages.cascade import SAFETY
 from packages.core import Feature, Prediction, StrictModel
 
 

@@ -37,7 +37,10 @@ def run(root: Path) -> None:
     for split in ["test", "shadow"]:
         rows = read(root / f"private/splits/{split}.jsonl")
         predictions = model.predict([r.feature for r in rows])
-        decisions = {r.odino: decide(r.feature, p, thresholds) for r, p in zip(rows, predictions, strict=True)}
+        decisions = {
+            r.odino: decide(r.feature, p, thresholds)
+            for r, p in zip(rows, predictions, strict=True)
+        }
         reports[split] = grade(rows, decisions)
         reports[split]["queue_interval"] = bootstrap(
             {r.odino: float(decisions[r.odino].queue in r.label.groups) for r in rows}

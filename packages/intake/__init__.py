@@ -63,7 +63,7 @@ def group_rows(rows: Iterable[Complaint]) -> tuple[list[Complaint], dict[str, in
         grouped[row.odino].append(row)
     accepted: list[Complaint] = []
     counts: Counter[str] = Counter()
-    for odino, variants in sorted(grouped.items()):
+    for _odino, variants in sorted(grouped.items()):
         first = variants[0]
         if any(
             (v.received, v.text_digest, v.feature, v.label.safety)

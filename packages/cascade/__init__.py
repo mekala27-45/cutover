@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 
-from packages.core import Action, Reason, Decision, Feature, Prediction, Thresholds
+from packages.core import Action, Decision, Feature, Prediction, Reason, Thresholds
 
 SAFETY = re.compile(
     r"\b(crash(?:ed|es|ing)?|collisi(?:on|ons)|fire|fires|smok(?:e|ing)|"

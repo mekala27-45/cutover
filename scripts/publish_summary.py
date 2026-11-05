@@ -28,7 +28,7 @@ def publish(root: Path) -> None:
     if floor.exists():
         source = json.loads(floor.read_text())
         # No case-level records, sample IDs, narrative or prediction rows are exported.
-        for split, report in source.get("reports", {}).items():
+        for _split, report in source.get("reports", {}).items():
             report["missing_count"] = len(report.pop("missing", []))
         (out / "floor.json").write_text(json.dumps(source, indent=2) + "\n")
 
