@@ -28,6 +28,11 @@ jobs:
         run: |
           ruff check packages scripts tests --output-format=json > results/ruff.json || true
           mypy packages --strict > results/mypy.txt || true
+          cat results/mypy.txt
+          python -c "import json; print(json.load(open('coverage.json'))['totals'])"
+          ruff check packages scripts tests --fix --output-format=concise || true
+          ruff format packages scripts tests
+          python -c "import json,pathlib; print('FORMATTED_SOURCE='+json.dumps({str(p):p.read_text() for base in ['packages','scripts','tests'] for p in pathlib.Path(base).rglob('*.py')}))"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
