@@ -1,0 +1,9 @@
+{
+  "files": {
+    "config/criteria.yaml": "5fbfe3b044d998258698d56baeefb2aac53195c7402b30a66cb506009ab6deba",
+    "config/plan.json": "a5e96d78596a46e49cf04c13c795d1043f9d929d818a2fa09342c05384c34638"
+  },
+  "real_customer_signature": false,
+  "registered_on": "2026-11-05",
+  "status": "before_any_test_scoring"
+}
