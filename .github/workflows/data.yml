@@ -1,0 +1,41 @@
+name: Actual data and floor
+on:
+  push:
+    branches: [main]
+    paths: ["requests/data.json"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cutover-data
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      PYTHONHASHSEED: "23"
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - run: python scripts/register.py --check
+      - run: python -m pytest -q
+      - run: python -m scripts.fetch_complaints
+      - run: python -m scripts.run_baseline
+      - name: Export aggregate evidence only
+        if: always()
+        run: python scripts/publish_summary.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aggregate-data-evidence
+          path: public_results/
+          if-no-files-found: warn
