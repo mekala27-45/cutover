@@ -1,0 +1,6 @@
+private/
+results/
+input/
+.venv/
+web/
+tests/
