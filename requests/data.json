@@ -1,5 +1,5 @@
 {
-  "attempt": 5,
-  "reason": "rare_first_lossless_deduplication_after_slow_initial_full_run",
+  "attempt": 6,
+  "reason": "preserve_Unicode_separators_inside_JSONL_records",
   "criteria_unchanged": true
 }

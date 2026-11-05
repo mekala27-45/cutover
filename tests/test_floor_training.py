@@ -88,3 +88,26 @@ def test_thresholds_are_selected_on_development_only():
     assert any(v["safety"] == 0.3 for v in comparisons)
     with pytest.raises(ValueError, match="development_only"):
         select(dev, predictions, plan, "a" * 64, "test")
+
+
+def test_jsonl_preserves_unicode_narrative_separators(tmp_path):
+    from scripts.run_baseline import read
+
+    record = rows(1, 2023)[0]
+    narrative = "An authored complaint\u0085with separators\u2028within its narrative."
+    record = record.model_copy(update={"feature": Feature(narrative=narrative)})
+    path = tmp_path / "records.jsonl"
+    path.write_text(record.model_dump_json() + "\n", encoding="utf-8")
+    restored = read(path)
+    assert len(restored) == 1
+    assert restored[0].feature.narrative == narrative
+
+
+def test_jsonl_error_does_not_expose_record_text(tmp_path):
+    from scripts.run_baseline import read
+
+    path = tmp_path / "records.jsonl"
+    path.write_text('{"narrative":"private_test_marker"', encoding="utf-8")
+    with pytest.raises(ValueError, match="invalid_complaint_jsonl_at_line_1") as caught:
+        read(path)
+    assert "private_test_marker" not in str(caught.value)

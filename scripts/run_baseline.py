@@ -16,7 +16,18 @@ from packages.floor import Floor
 
 
 def read(path: Path) -> list[Complaint]:
-    return [Complaint.model_validate_json(line) for line in path.read_text().splitlines() if line]
+    records = []
+    # JSONL uses LF as its record separator. str.splitlines() also splits legal
+    # Unicode narrative characters such as U+0085 and U+2028 inside JSON strings.
+    with path.open(encoding="utf-8") as stream:
+        for number, line in enumerate(stream, start=1):
+            if not line.strip():
+                continue
+            try:
+                records.append(Complaint.model_validate_json(line))
+            except ValueError:
+                raise ValueError(f"invalid_complaint_jsonl_at_line_{number}") from None
+    return records
 
 
 def run(root: Path) -> None:
