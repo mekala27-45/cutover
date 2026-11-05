@@ -7,7 +7,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 PATHS = ["config/criteria.yaml","config/plan.json"]
 def current():
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in PATHS}
+    return {p:hashlib.sha256(json.dumps(json.loads((ROOT/p).read_text()), sort_keys=True, separators=(",", ":")).encode()).hexdigest() for p in PATHS}
 if __name__ == "__main__":
     path = ROOT/"evaluation/registration.json"
     records = current()
