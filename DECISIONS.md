@@ -51,3 +51,6 @@ Later changes use a Git tree and a checked branch update to publish one coherent
 
 ## 2026-11-05: rare-first prefix ordering
 The first full intake did not finish within its initial observation window. Code inspection identified common boilerplate as a potential source of excessive prefix candidates under lexical ordering. Prefixes now use one corpus-wide frequency order with deterministic lexical ties. The Jaccard guarantee is unchanged. Progress output contains stage names, counts and source digests only. The obsolete run is cancelled to preserve the runner budget.
+
+## 2026-11-05: approved runtime credential transfer
+The user approved the recommended scoped connection and HMAC salt setup. Vercel confirmed both encrypted variables for production and preview. No credential value is committed or recorded in public evidence. Deployment remains pending the previously observed free daily quota reset.

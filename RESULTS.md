@@ -20,7 +20,7 @@ The real-browser check covered every route, source disclosure, example buttons, 
 | 6 | not done | Calibrated cascade | The safety guard and no-close property tests pass; real development operating points and interior comparisons remain pending. |
 | 7 | not done | Every-arm evaluation | Independent grading, bootstrap and BH code exist; qualifying held-out results for all arms are absent. |
 | 8 | done | C1 through C7 verdicts | public_results/manifest.json and the live criteria page explicitly show every criterion as not_shown with its missing-evidence reason. |
-| 9 | not done | Durable live API | The Vercel health endpoint returns guard_only; the database environment transfer and independent successful receipt verification remain pending. |
+| 9 | not done | Durable live API | The Vercel health endpoint returns guard_only; encrypted database variables are configured; deployment and independent successful receipt verification remain pending. |
 | 10 | not done | 2026 shadow replay | No actual shadow model replay has been promoted. |
 | 11 | not done | Bad-release and rollback drill | Synthetic monitor and digest-rollback tests pass; the required real planted-release drill has not run. |
 | 12 | not done | Cost and ROI | Pinned MLSpend price rows and tested arithmetic exist; measured compute, every-arm trade-offs and ROI remain missing. |
@@ -33,7 +33,7 @@ The real-browser check covered every route, source disclosure, example buttons, 
 
 ## Limitations and blocking dependencies
 
-The scoped database connection and secret salt have not been added to Vercel because automatic approval review requires explicit authorization for that destination. Vercel also rejected the latest deployment because the free daily deployment allowance was exhausted. The serving commit is recorded separately from main.
+The user approved the scoped database connection and secret salt transfer on 2026-11-05. Both encrypted variables are configured for the Cutover Vercel project's production and preview environments, pending a new deployment. Vercel also rejected the latest deployment because the free daily deployment allowance was exhausted. The serving commit is recorded separately from main.
 
 Kaggle is signed in and displayed free T4 eligibility, but the notebook editor remained loading after a reload with Start session disabled. No GPU model probe, training or inference was started. No encoder or language-model performance, savings, latency SLO or rollout success is established.
 

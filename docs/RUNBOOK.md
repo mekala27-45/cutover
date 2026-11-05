@@ -8,7 +8,7 @@ The web application is hosted at https://mekala27-45.github.io/cutover/ and the 
 
 ## Deployment prerequisites
 
-The dedicated database schema is installed. The runtime role can read release state, insert triage receipts and consume request budgets. It cannot change release state. DATABASE_URL and CUTOVER_SALT must be entered as encrypted production and preview environment variables for the dedicated Cutover Vercel project after the user explicitly approves that credential transfer. Neither value belongs in a repository, command log or document.
+The dedicated database schema is installed. The runtime role can read release state, insert triage receipts and consume request budgets. It cannot change release state. DATABASE_URL and CUTOVER_SALT were added as encrypted production and preview variables for the dedicated Cutover Vercel project on 2026-11-05 after explicit user approval. A new deployment must consume them before live triage can be verified. Neither value belongs in a repository, command log or document.
 
 The Vercel free deployment quota was exhausted on 2026-11-05. Wait for its reset before attempting the prepared deployment. Do not upgrade a plan or bypass the quota. The deployment currently serving health is older than main.
 
