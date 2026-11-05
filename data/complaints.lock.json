@@ -1,0 +1,24 @@
+{
+  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42115683275",
+  "mode": "actual_nhtsa_intake_in_progress",
+  "accepted_component_rows": 618446,
+  "grouped_complaints": 429716,
+  "layouts_seen": {
+    "51": 618446
+  },
+  "sources": [
+    {
+      "url": "https://static.nhtsa.gov/odi/ffdd/cmpl/COMPLAINTS_RECEIVED_2020-2024.zip",
+      "bytes": 75874139,
+      "sha256": "02fc008f8d366e6a748c13e9c5eae7cc4a14a191e986471e9545ef2d7fefc58d"
+    },
+    {
+      "url": "https://static.nhtsa.gov/odi/ffdd/cmpl/COMPLAINTS_RECEIVED_2025-2026.zip",
+      "bytes": 43421540,
+      "sha256": "4021440afb0a36e639baffe1488923c5e36b8cbc54d0c3760d71e07a238c0db3"
+    }
+  ],
+  "post_dedup_counts": null,
+  "complete": false,
+  "notes": "Current archives emitted the 51-field layout. The 49-field parser is fixture-tested only."
+}

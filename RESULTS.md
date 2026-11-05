@@ -4,7 +4,7 @@ The end-to-end release is incomplete. The site and guard-only API are deployed. 
 
 ## Verified software behavior
 
-The quality run at https://github.com/mekala27-45/cutover/actions/runs/42114808419 passed the contract tests, enforced coverage threshold, Ruff and strict typing. See public_results/service-probe.json for recorded check values and provenance. Synthetic software tests are separate from actual model evaluations.
+The quality run at https://github.com/mekala27-45/cutover/actions/runs/42115683233 passed the contract tests, enforced coverage threshold, Ruff and strict typing. See public_results/service-probe.json for recorded check values and provenance. Synthetic software tests are separate from actual model evaluations.
 
 The real-browser check covered every route, source disclosure, example buttons, light/dark themes and a mobile viewport. The live try form returned unavailable and did not claim a receipt. The independent database query confirmed that the runtime role cannot mutate release state.
 
@@ -37,6 +37,6 @@ The scoped database connection and secret salt have not been added to Vercel bec
 
 Kaggle is signed in and displayed free T4 eligibility, but the notebook editor remained loading after a reload with Start session disabled. No GPU model probe, training or inference was started. No encoder or language-model performance, savings, latency SLO or rollout success is established.
 
-The full data run was restarted after replacing a potentially expensive duplicate-candidate ordering. Until it completes, no source inventory or post-dedup counts are represented as observed. There are no actual injection counts, slice gaps, label-noise estimates, interior-test results or planted-release trips to report yet.
+The full data run was restarted after replacing a potentially expensive duplicate-candidate ordering. The archive downloads, their digests and pre-deduplication counts are now observed in data/complaints.lock.json. Post-deduplication counts and model results remain unavailable. There are no actual injection counts, slice gaps, label-noise estimates, interior-test results or planted-release trips to report yet.
 
 Stretch work is not done and is not counted toward the mandatory checklist.
