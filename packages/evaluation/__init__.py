@@ -61,8 +61,13 @@ def ece(rows: list[tuple[float, bool]], bins: int = 10) -> float | None:
 def bootstrap(values: dict[str, float], seed: int = 23, samples: int = 10000) -> dict[str,float]:
     if not values or samples < 100: raise ValueError("insufficient_bootstrap")
     ordered = [values[k] for k in sorted(values)]
-    rng = random.Random(seed)
-    means = sorted(sum(rng.choices(ordered,k=len(ordered)))/len(ordered) for _ in range(samples))
+    import numpy as np
+    # Multinomial counts are exactly the empirical bootstrap distribution.
+    # They avoid allocating samples x population for binary/paired metrics.
+    unique, counts = np.unique(ordered, return_counts=True)
+    rng = np.random.default_rng(seed)
+    means = sorted((rng.multinomial(len(ordered), counts / len(ordered), size=samples)
+                    @ unique / len(ordered)).tolist())
     return {"estimate":sum(ordered)/len(ordered), "lower95":means[int(.05*samples)],
             "upper95":means[min(samples-1,int(.95*samples))],
             "two_sided_lower":means[int(.025*samples)],
