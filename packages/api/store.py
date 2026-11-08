@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import hmac
+import logging
+import re
 import os
 import uuid
 from typing import Any
@@ -27,6 +29,15 @@ def client_digest(address: str) -> str:
     return hmac.new(salt.encode(), address.encode(), "sha256").hexdigest()
 
 
+def log_storage_failure(operation: str, exc: Exception) -> None:
+    state = getattr(exc, "sqlstate", None)
+    safe_state = state if isinstance(state, str) and re.fullmatch(r"[A-Z0-9]{5}", state) else None
+    logging.getLogger(__name__).error(
+        "storage_failure operation=%s type=%s sqlstate=%s",
+        operation, type(exc).__name__, safe_state,
+    )
+
+
 def connect() -> Any:
     import psycopg
 
@@ -47,7 +58,7 @@ def triage(feature: Feature, address: str) -> dict[str, Any]:
             with conn.cursor() as cur:
                 cur.execute(
                     "SELECT stable_digest,canary_digest,canary_weight,killed,version "
-                    "FROM cutover.release_state WHERE singleton=true FOR SHARE"
+                    "FROM cutover.release_state WHERE singleton=true"
                 )
                 state = cur.fetchone()
                 if state is None:
@@ -92,7 +103,8 @@ def triage(feature: Feature, address: str) -> dict[str, Any]:
         raise
     except StorageUnavailable:
         raise
-    except Exception:
+    except Exception as exc:
+        log_storage_failure("triage", exc)
         raise StorageUnavailable("database_operation_failed") from None
 
 
@@ -125,5 +137,6 @@ def release_state() -> dict[str, Any]:
             "history": history,
             "model_ready": False,
         }
-    except Exception:
+    except Exception as exc:
+        log_storage_failure("release", exc)
         raise StorageUnavailable("release_read_failed") from None

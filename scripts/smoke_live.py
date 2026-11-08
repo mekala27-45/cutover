@@ -1,13 +1,14 @@
 """Authored examples only. A receipt is checked separately through the DB connector."""
 
 import json
+import os
 import time
 import urllib.error
 import urllib.request
 from pathlib import Path
 
 BASE = "https://cutover-api.vercel.app"
-EXPECTED = "6b6cda45ac0936439845172c901cc9b7cd47e066"
+EXPECTED = os.environ["GITHUB_SHA"]
 
 
 def request(path: str, payload: dict | None = None) -> dict:
@@ -28,7 +29,11 @@ def run() -> None:
     output = {"mode": "actual_live_guard_only_smoke", "checks": {}, "quality_claim": False}
     checks = output["checks"]
     try:
-        checks["health"] = request("/health")
+        for _ in range(12):
+            checks["health"] = request("/health")
+            if checks["health"]["body"].get("source_commit") == EXPECTED:
+                break
+            time.sleep(5)
         assert checks["health"]["status"] == 200
         assert checks["health"]["body"]["source_commit"] == EXPECTED
         assert checks["health"]["body"]["model_ready"] is False

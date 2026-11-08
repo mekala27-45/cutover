@@ -68,7 +68,7 @@ def test_receipt_commits_before_return_and_omits_text(monkeypatch):
     result = store.triage(Feature(narrative=narrative), "192.0.2.1")
     assert connection.committed and not connection.rolled_back
     assert result["decision"]["action"] == "send_to_analyst"
-    assert "FOR SHARE" in connection.cur.calls[0][0]
+    assert "FOR SHARE" not in connection.cur.calls[0][0]
     logged = connection.cur.calls[-1][1][-1].obj
     assert narrative not in str(logged)
     assert "192.0.2.1" not in str(connection.cur.calls)
@@ -111,3 +111,21 @@ def test_client_hmac_changes_with_salt(monkeypatch):
     first = store.client_digest("192.0.2.5")
     monkeypatch.setenv("CUTOVER_SALT", "b" * 32)
     assert store.client_digest("192.0.2.5") != first
+
+
+def test_storage_diagnostics_never_log_exception_message(caplog):
+    class PrivateError(Exception):
+        sqlstate = "08006"
+
+    store.log_storage_failure("release", PrivateError("private-marker-do-not-log"))
+    assert "08006" in caplog.text
+    assert "private-marker-do-not-log" not in caplog.text
+
+
+def test_storage_diagnostics_reject_nonstandard_sqlstate(caplog):
+    class PrivateError(Exception):
+        sqlstate = "private-marker"
+
+    store.log_storage_failure("release", PrivateError("secret-message"))
+    assert "private-marker" not in caplog.text
+    assert "secret-message" not in caplog.text
