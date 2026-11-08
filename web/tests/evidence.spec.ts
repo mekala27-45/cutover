@@ -29,7 +29,13 @@ test("actual floor metrics match the committed evidence",async({page})=>{
 
 test("a first 503 wakes cleanly and persistent failure never claims a receipt",async({page})=>{
  let calls=0;
- await page.route("**/health",route=>route.fulfill({status:200,json:{model_ready:false}}));
+ let healthCalls=0;
+ await page.route("**/health",route=>{
+  if(route.request().method()==="HEAD")return route.fulfill({status:405});
+  healthCalls++;
+  return route.fulfill(healthCalls===1?{status:503,json:{detail:"synthetic_waking"}}:
+   {status:200,json:{model_ready:false}});
+ });
  await page.route("**/v1/triage",route=>{
   calls++;
   return route.fulfill({status:503,json:{detail:"synthetic_unavailable"}});

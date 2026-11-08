@@ -1,6 +1,6 @@
 # Model and source status
 
-The TF-IDF floor is implemented and passes synthetic fit, calibration and serialization tests. Full intake completed, and the corrected actual baseline workflow is training. Its quality results are not yet promoted.
+The TF-IDF floor is implemented and passes synthetic fit, calibration and serialization tests. Full intake and actual baseline evaluation completed. The aggregate results and source provenance are published in public_results/floor.json and report/baseline.md. They are not evidence of a live model deployment.
 
 ModernBERT-base executed successfully on one visible Tesla T4 using Transformers 5.22.1, PyTorch 2.11.0+cu130, fp16 and SDPA. The exact revision is 8949b909ec900327062f0ebf497f51aef5e6f0c8, with Apache-2.0 metadata verified before loading. Ten authored-input forward passes produced finite outputs. The classification head was newly initialized, so this proves runtime compatibility only. See public_results/encoder-probe.json. Fine-tuning, calibration, ONNX export, INT8 parity and held-out task evaluation remain outstanding.
 

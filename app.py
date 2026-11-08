@@ -36,6 +36,10 @@ def health():
     return {"status":"guard_only","model_ready":False,
             "source_commit":os.getenv("VERCEL_GIT_COMMIT_SHA","local"),
             "registration_digest":digest(json.loads((ROOT/"evaluation/registration.json").read_text())),
+            "data_digest":digest(json.loads((ROOT/"public_results/intake.json").read_text()))
+                if (ROOT/"public_results/intake.json").exists() else None,
+            "price_digest":digest(json.loads((ROOT/"config/price-book.json").read_text())),
+            "model_digest":None,
             "statement":STATEMENT}
 
 @app.post("/v1/triage")
