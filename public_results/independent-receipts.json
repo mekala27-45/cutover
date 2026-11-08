@@ -3,22 +3,22 @@
   "role": "owner_via_separate_connector",
   "rows": [
     {
-      "receipt_id": "1818447c-5714-4d79-9dd9-417f548f1b9a",
+      "receipt_id": "026c1796-10bb-4b0d-b229-889316b32f36",
       "text_digest": "b6eec359dde3f6f24146561c92f6790f8fcb7c909bedc2bb6db6a5e32d5ef9c7",
       "release_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
       "release_version": "1",
       "action": "send_to_analyst",
       "reason": "safety_keyword",
-      "created_at": "2026-11-08T01:16:35.966Z"
+      "created_at": "2026-11-08T01:31:10.331Z"
     },
     {
-      "receipt_id": "4a7eed5b-fea0-4eb7-997d-9c9d7f8e8fb5",
+      "receipt_id": "4f03e747-cc3b-4c63-8a09-6e6196bfab5d",
       "text_digest": "468cbff60f89cf09b63b71cbb6678ffaf3baeff9a759af0f7100cd73cea64739",
       "release_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
       "release_version": "1",
       "action": "send_to_analyst",
       "reason": "model_unavailable",
-      "created_at": "2026-11-08T01:16:35.489Z"
+      "created_at": "2026-11-08T01:31:09.979Z"
     }
   ],
   "limitations": [

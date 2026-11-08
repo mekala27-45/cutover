@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-05",
+  "api": "https://cutover-api.vercel.app/health",
+  "status": 200,
+  "mode": "guard_only",
+  "model_ready": false,
+  "source_commit": "30608fb0bf1947bc76132d138cb117090d475be8",
+  "latest_deployment": "blocked_free_daily_quota",
+  "database_env": "configured_encrypted_production_preview_deployment_pending",
+  "ci_run": "https://github.com/mekala27-45/cutover/actions/runs/42115683233",
+  "tests": 64,
+  "coverage_percent": 83.19327731092437,
+  "mypy": "strict_passed_14_packages",
+  "ruff": "passed",
+  "database_privileges": {
+    "receipts_insert": true,
+    "budget_update": true,
+    "release_update": false,
+    "switch_history_insert": false
+  },
+  "environment_confirmation": {
+    "date": "2026-11-05",
+    "keys": [
+      "DATABASE_URL",
+      "CUTOVER_SALT"
+    ],
+    "targets": [
+      "production",
+      "preview"
+    ],
+    "type": "encrypted",
+    "user_approval": "received"
+  }
+}

@@ -35,7 +35,7 @@ The floor operating point exceeds the registered review-load target. Its results
 
 The API is guard-only. Its measured request times are not trained-model latency. A genuine cold start was not forced or independently observed, and no live switch drill or planted-release drill has completed. All shipped-system criteria remain not_shown.
 
-The Vercel quota blocker is resolved and pooled database access is corrected. Browser-control tooling is currently unavailable for recovering the Kaggle session; local shell networking also cannot resolve remote hosts. CI browser tests and connected-service tools remain usable. GPU outputs, further model implementation and evaluation, and the remaining handover work are still required.
+The Vercel quota blocker is resolved and pooled database access is corrected. A fresh startup exposed disk exhaustion from analysis dependencies; the runtime dependency split is deployed and verified by isolated CI and new live receipts. Browser-control tooling is currently unavailable for recovering the Kaggle session; local shell networking also cannot resolve remote hosts. CI browser tests and connected-service tools remain usable. GPU outputs, further model implementation and evaluation, and the remaining handover work are still required.
 
 ## Stretch
 

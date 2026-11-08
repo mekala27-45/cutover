@@ -1,15 +1,16 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-08",
   "api": "https://cutover-api.vercel.app/health",
   "status": 200,
   "mode": "guard_only",
   "model_ready": false,
-  "source_commit": "30608fb0bf1947bc76132d138cb117090d475be8",
-  "latest_deployment": "blocked_free_daily_quota",
-  "database_env": "configured_encrypted_production_preview_deployment_pending",
-  "ci_run": "https://github.com/mekala27-45/cutover/actions/runs/42115683233",
-  "tests": 64,
-  "coverage_percent": 83.19327731092437,
+  "source_commit": "f251c7a382349c367ec4d83ab7cc33bf6d2755f0",
+  "database_env": "configured_encrypted_production_preview",
+  "ci_run": "https://github.com/mekala27-45/cutover/actions/runs/42434577963",
+  "browser_run": "https://github.com/mekala27-45/cutover/actions/runs/42434577988",
+  "smoke_run": "https://github.com/mekala27-45/cutover/actions/runs/42434577953",
+  "tests": 74,
+  "coverage_percent": 83.2520325203252,
   "mypy": "strict_passed_14_packages",
   "ruff": "passed",
   "database_privileges": {
@@ -18,17 +19,6 @@
     "release_update": false,
     "switch_history_insert": false
   },
-  "environment_confirmation": {
-    "date": "2026-11-05",
-    "keys": [
-      "DATABASE_URL",
-      "CUTOVER_SALT"
-    ],
-    "targets": [
-      "production",
-      "preview"
-    ],
-    "type": "encrypted",
-    "user_approval": "received"
-  }
+  "prior_probe": "public_results/history/service-probe-20261105.json",
+  "startup_incident": "public_results/runtime-startup-incident.json"
 }

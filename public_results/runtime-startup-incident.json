@@ -1,0 +1,17 @@
+{
+  "mode": "actual_runtime_failure_and_recovery",
+  "observed_at": "2026-11-08T01:26:17.419Z",
+  "failed_source_commit": "6688f77214566c6c61a0fe346a1fd507f1ee75a0",
+  "failed_deployment": "dpl_8FFJe6bGxXfaeBrByqvftbY1XBq8",
+  "symptom": "HTTP 500 FUNCTION_INVOCATION_FAILED",
+  "cause": "Runtime installation of SciPy and PyArrow exhausted temporary disk space.",
+  "fix_commit": "2a842be023a972312eef5552541806252f3b616d",
+  "fix": "Move analysis dependencies into an optional extra; base dependencies match the minimal API.",
+  "recovery_evidence": [
+    "public_results/live-smoke.json",
+    "public_results/browser-verification.json",
+    "public_results/quality-verification.json"
+  ],
+  "recovered": true,
+  "model_quality_claim": false
+}

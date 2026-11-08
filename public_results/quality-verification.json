@@ -1,12 +1,14 @@
 {
   "mode": "software_tests",
-  "source_commit": "6688f77214566c6c61a0fe346a1fd507f1ee75a0",
-  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42434015055",
+  "source_commit": "f251c7a382349c367ec4d83ab7cc33bf6d2755f0",
+  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42434577963",
   "tests_passed": 74,
   "notebooks_passed": 3,
   "package_statement_coverage": 83.2520325203252,
   "ruff": "passed",
   "mypy": "passed",
   "mypy_source_files": 14,
-  "model_quality_claim": false
+  "model_quality_claim": false,
+  "isolated_runtime": "passed_without_analysis_dependencies",
+  "baseline_rederivation": "byte_identical_for_report_and_both_manifest_copies"
 }

@@ -1,7 +1,7 @@
 {
   "mode": "actual_browser_and_separate_synthetic_error_tests",
-  "source_commit": "6688f77214566c6c61a0fe346a1fd507f1ee75a0",
-  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42434015023",
+  "source_commit": "f251c7a382349c367ec4d83ab7cc33bf6d2755f0",
+  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42434577988",
   "site": "https://mekala27-45.github.io/cutover/",
   "tests_passed": 4,
   "routes_checked": [
@@ -33,7 +33,7 @@
     "health_HEAD_405": "configured_not_required_by_client"
   },
   "live_receipt": {
-    "receipt_id": "64c4ed24-83b2-4062-a710-79b6410f1494",
+    "receipt_id": "e18231d7-b3e5-4992-aeb9-a09298d75100",
     "mode": "guard_only",
     "model_ready": false,
     "release": "v1",
@@ -55,15 +55,18 @@
   },
   "independent_database_rows": [
     {
-      "receipt_id": "64c4ed24-83b2-4062-a710-79b6410f1494",
+      "receipt_id": "e18231d7-b3e5-4992-aeb9-a09298d75100",
       "text_digest": "998dbfbfdc399888eadfa1df4157800ac6d2c66674708fa504f8d498c55572d8",
+      "release_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
       "release_version": "1",
-      "action": "send_to_analyst"
+      "action": "send_to_analyst",
+      "reason": "model_unavailable",
+      "created_at": "2026-11-08T01:31:54.174Z"
     }
   ],
   "limitations": [
     "Guard-only service; no trained encoder serving.",
-    "The asleep and wake sequence is synthetic; no actual sleeping service was forced.",
-    "A later independent health check found startup disk exhaustion, prompting a dependency fix and fresh verification."
-  ]
+    "The asleep and wake sequence is synthetic; no actual sleeping service was forced."
+  ],
+  "live_api_health": "passed"
 }

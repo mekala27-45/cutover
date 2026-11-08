@@ -84,3 +84,7 @@ The pinned Playwright version does not support the newly selected ubuntu-latest 
 A fresh production invocation failed while extracting SciPy and PyArrow because temporary disk space was exhausted. These training libraries are not imported by guard-only serving. They now belong to the analysis extra, while the deployment installs the pinned base API dependencies. An isolated CI environment checks that serving imports and health work without analysis libraries. This reverses the original single dependency set; model promotion will need its own measured serving bundle.
 
 Vercel dependency guidance: https://vercel.com/docs/functions/runtimes/python
+
+## 2026-11-07: health after deployment readiness
+
+A ready deployment and an earlier successful triage did not guarantee a fresh worker could start. The browser suite now checks live health before submitting the authored complaint. Smoke verification records the immutable deployment, and the isolated dependency check runs in a clean environment. The repeated smoke, browser and load receipts were all matched through an independent database read. Cold-start timing remains unmeasured.
