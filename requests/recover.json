@@ -1,5 +1,5 @@
 {
-  "attempt": 2,
+  "attempt": 3,
   "source_run": 42118098139,
-  "purpose": "diagnose_live_storage_with_redacted_sqlstate"
+  "purpose": "verify_pooler_compatible_transaction_and_durable_receipts"
 }

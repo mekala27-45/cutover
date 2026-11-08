@@ -62,7 +62,13 @@ def connect() -> Any:
     value = os.environ.get("DATABASE_URL")
     if not value:
         raise StorageUnavailable("database_not_configured")
-    return psycopg.connect(value, connect_timeout=10, options="-c statement_timeout=10000")
+    connection = psycopg.connect(value, connect_timeout=10)
+    try:
+        connection.execute("SET LOCAL statement_timeout = '10s'")
+    except Exception:
+        connection.close()
+        raise
+    return connection
 
 
 def triage(feature: Feature, address: str) -> dict[str, Any]:

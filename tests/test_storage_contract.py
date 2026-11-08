@@ -129,3 +129,31 @@ def test_storage_diagnostics_reject_nonstandard_sqlstate(caplog):
     store.log_storage_failure("release", PrivateError("secret-message"))
     assert "private-marker" not in caplog.text
     assert "secret-message" not in caplog.text
+
+
+def test_pooler_timeout_is_set_inside_transaction(monkeypatch):
+    import psycopg
+
+    class SpyConnection:
+        closed = False
+
+        def execute(self, sql):
+            self.sql = sql
+
+        def close(self):
+            self.closed = True
+
+    connection = SpyConnection()
+    observed = {}
+
+    def connect(value, **kwargs):
+        observed.update(kwargs)
+        return connection
+
+    monkeypatch.setenv("DATABASE_URL", "test-only-dsn")
+    monkeypatch.setattr(psycopg, "connect", connect)
+    assert store.connect() is connection
+    assert "options" not in observed
+    assert observed["connect_timeout"] == 10
+    assert connection.sql == "SET LOCAL statement_timeout = '10s'"
+    assert not connection.closed
