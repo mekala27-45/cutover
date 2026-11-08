@@ -36,7 +36,7 @@ test("a first 503 wakes cleanly and persistent failure never claims a receipt",a
  });
  await page.goto("/cutover/try/");
  await page.getByRole("button",{name:/Request triage/}).click();
- await expect(page.getByRole("alert")).toContainText("No triage was confirmed");
+ await expect(page.locator(".try [role=alert]")).toContainText("No triage was confirmed");
  expect(calls).toBe(2);
  await expect(page.locator(".receipt")).toHaveCount(0);
  await page.unroute("**/v1/triage");
@@ -54,7 +54,7 @@ test("a first 503 wakes cleanly and persistent failure never claims a receipt",a
 });
 
 test("published API returns a durable receipt through the browser",async({page})=>{
- await page.goto("/cutover/try/");
+ await page.goto("https://mekala27-45.github.io/cutover/try/");
  await page.getByLabel("Complaint narrative").fill("Authored browser verification: the dashboard clock loses its saved time.");
  const response=page.waitForResponse(r=>r.url().endsWith("/v1/triage")&&r.status()===200);
  await page.getByRole("button",{name:/Request triage/}).click();

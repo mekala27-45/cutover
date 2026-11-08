@@ -1,0 +1,150 @@
+{
+  "mode": "actual_independent_database_read",
+  "rows": [
+    {
+      "receipt_id": "08ccfc6b-a053-42aa-953f-287961546be8",
+      "text_digest": "4557445b0d2a98d436ee0e4f9ecc9de60b8bb477b0792e9ac268799a0e6973c8",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "0baeeeb4-1ca6-468a-8b0d-948fe760bc5f",
+      "text_digest": "dc830a79c26d7203f15cc8f059272e1be8422da419ddc4dde0df7e5fabe35938",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "0e1da381-b340-4cb6-ad6f-9c0f490006c4",
+      "text_digest": "a30d033daf70c638c190b588c9ef3569b48c140ab80f1e8f329ec4a0086d1a83",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "1d652025-3715-4c12-be35-ff84cb1e15f9",
+      "text_digest": "ae3f0817658a58c48cbd77c87ad1a5170677ae7952fb4931fb7406fe54ee9374",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "2d0b3795-b1fb-4a23-9f01-73fd81ecb547",
+      "text_digest": "558b8efc1ae7cf3c960419b142daf2a5eda55647671b878a303cb6a8f1830cc9",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "312f60bd-631d-45b8-9e39-c8d43b5ced64",
+      "text_digest": "bb080e970815eb80e3d434e32fe4ba6cd307eecc22df63932cdc3a1bd978f8f2",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "5306c6e9-fbec-4544-b7e8-c63b40db0a0f",
+      "text_digest": "63d91e9406d0483b77b48caf1a0ea68668ced909845bc77ade4d49b414d19895",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "57017486-db40-4e7e-bd58-402eace47d96",
+      "text_digest": "a2f34671eba46b814112bd9231bcb66d3cb547d835652c32706191e7248a26f4",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "5d493211-c610-4fb5-b916-db737cfd8f7e",
+      "text_digest": "a63170008dd5617a9c9e4446b8ce2f102d0c804f1c6215da31998ac053ef1d30",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "68137b99-9aaf-4a81-a10b-b6bcb505f7d9",
+      "text_digest": "00464875a84363cc45196de69116c938cca5d170a9405bd3cb8519d4f51514c8",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "7560348e-829d-4e80-9465-76f93bd4629b",
+      "text_digest": "07a96c70e59f07176bb348abc23514aa83c5d94e54fb6189b1a124a26487d455",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "7b7b1046-1e11-439e-97d0-827f00ac4324",
+      "text_digest": "42aa9ac52f48db37154bbed7e5cd05c7e17f4847d6ed2d14aa73253df4a04def",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "995c2c63-4ba2-42e4-82d2-2690a29823b1",
+      "text_digest": "0b2689e9a325dc0660669510f2e1cb51c942dcb94143c833ef284224d298ed6c",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "a05b4bfd-8976-417d-aae1-bd7891cca681",
+      "text_digest": "094b10cacf145d6735be49e25fd6a64411d1462530e177234807c5b824663266",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "b33a8464-d8e7-4b17-9b81-fd3d39461f9d",
+      "text_digest": "85498ec4a8fd5b47e60c1656ebbd4dbbdf38bac474ffe783c93d73f3d230140b",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "bb96abcc-82c6-4c6e-8589-4b5f923525f2",
+      "text_digest": "87161c03fb1da4d2043e52cbf0d7e342cebc095339be82a53c53e977d6e7ac8c",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "ce1a102f-a783-477d-84f4-eb7cde5e7394",
+      "text_digest": "cb50b4f38d837571e5f665bbcdfbf43752d43814737dd7924faed2e140649931",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "d47e167c-4780-4c5e-95c0-13b91d9fbbc9",
+      "text_digest": "4cb1aa482298993af0b83d72cc3df4646330f56a848249b1548d7b11f3a3f42c",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "d8daec9d-b0eb-4377-ac34-6ceff1717a01",
+      "text_digest": "a1ba37da64185b4de99cb1ba6b1940c7e67a4cca52aec39a60af093b5abe256d",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "d94ac3ab-dfb6-41e5-9786-fa2e18a71870",
+      "text_digest": "885f9e2d14b17349d0a29613630a9cdb0fd6da1df4f648089ac95e0d8923d208",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "db57aac9-1272-4a84-9f78-0b994678f812",
+      "text_digest": "4423315f8c14457fce4cb331b1e7d1dc85e4306d2e089b8099e72d946a858001",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "dfa0d964-e508-4456-9cb4-eea82f14ca58",
+      "text_digest": "36aceb1feb8e188859083a0759b69a572a0a6d8b2c09ce0c5a694ff7a480d1de",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "ea558e99-898e-4a95-adea-dafb997afea9",
+      "text_digest": "bbf648eb3eba578ac77f580e64595452b3c0c5bb2816fdf129bd3836e39055a4",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    },
+    {
+      "receipt_id": "f2061bf3-23aa-4d26-a972-865815b4c1e8",
+      "text_digest": "5ed1c710456f69b297d7b4fdfd4cf5394c54bbc03dffe0ca4efbbf01e9dd92b4",
+      "release_version": "1",
+      "action": "send_to_analyst"
+    }
+  ],
+  "matched_count": 24
+}
