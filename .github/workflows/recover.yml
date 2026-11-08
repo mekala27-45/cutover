@@ -1,0 +1,33 @@
+name: Recover aggregate evidence and verify live API
+on:
+  push:
+    branches: [main]
+    paths: ["requests/recover.json"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: aggregate-data-evidence
+          run-id: 42118098139
+          github-token: ${{ github.token }}
+          path: recovered
+      - run: python scripts/recover_evidence.py
+      - run: python scripts/smoke_live.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recovered-aggregate-and-live
+          path: recovered/
