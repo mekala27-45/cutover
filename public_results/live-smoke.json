@@ -1,0 +1,164 @@
+{
+  "mode": "actual_live_guard_only_smoke",
+  "checks": {
+    "health": {
+      "status": 200,
+      "body": {
+        "status": "guard_only",
+        "model_ready": false,
+        "source_commit": "0be1cddd03ab4fd0f93aa43b3a3f4caeee055aff",
+        "registration_digest": "b4e984ab4ad2a5c355e1e4a7096aee2b1d498ce94f8d207bdfc0479c6a0d1b02",
+        "statement": "cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices."
+      },
+      "elapsed_ms": 293.8902069999898
+    },
+    "release": {
+      "status": 200,
+      "body": {
+        "stable_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
+        "canary_digest": null,
+        "canary_weight": 0,
+        "killed": false,
+        "version": 1,
+        "updated_at": "2026-11-05T21:20:34.357344+00:00",
+        "history": [],
+        "model_ready": false,
+        "statement": "cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices."
+      },
+      "elapsed_ms": 357.0180369999889
+    },
+    "ordinary": {
+      "status": 200,
+      "body": {
+        "receipt_id": "4a7eed5b-fea0-4eb7-997d-9c9d7f8e8fb5",
+        "mode": "guard_only",
+        "model_ready": false,
+        "release": "v1",
+        "release_version": 1,
+        "text_digest": "468cbff60f89cf09b63b71cbb6678ffaf3baeff9a759af0f7100cd73cea64739",
+        "decision": {
+          "scores": {
+            "OTHER": 0
+          },
+          "safety_probability": 1,
+          "queue": "OTHER",
+          "action": "send_to_analyst",
+          "reason": "model_unavailable",
+          "arm": "unavailable",
+          "version_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
+          "compute_ms": 0
+        },
+        "statement": "cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices."
+      },
+      "elapsed_ms": 474.1750600000074
+    },
+    "safety": {
+      "status": 200,
+      "body": {
+        "receipt_id": "1818447c-5714-4d79-9dd9-417f548f1b9a",
+        "mode": "guard_only",
+        "model_ready": false,
+        "release": "v1",
+        "release_version": 1,
+        "text_digest": "b6eec359dde3f6f24146561c92f6790f8fcb7c909bedc2bb6db6a5e32d5ef9c7",
+        "decision": {
+          "scores": {
+            "OTHER": 0
+          },
+          "safety_probability": 1,
+          "queue": "OTHER",
+          "action": "send_to_analyst",
+          "reason": "safety_keyword",
+          "arm": "unavailable",
+          "version_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
+          "compute_ms": 0
+        },
+        "statement": "cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices."
+      },
+      "elapsed_ms": 445.7449089999983
+    },
+    "invalid": {
+      "status": 422,
+      "body": {
+        "error": "invalid_request",
+        "fields": [
+          [
+            "body",
+            "narrative"
+          ]
+        ],
+        "statement": "cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices."
+      },
+      "elapsed_ms": 203.90385900000751
+    },
+    "criteria": {
+      "status": 200,
+      "body": {
+        "criteria": [
+          {
+            "id": "C1",
+            "sentence": "Routing stays within one percentage point of the recorded incumbent.",
+            "threshold": -0.01,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          },
+          {
+            "id": "C2",
+            "sentence": "At least 98 percent of filed safety complaints reach a person.",
+            "threshold": 0.98,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          },
+          {
+            "id": "C3",
+            "sentence": "Shadow compute cost is at most 20 percent of the incumbent.",
+            "threshold": 0.2,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          },
+          {
+            "id": "C4",
+            "sentence": "At most 40 percent of complaints reach a person.",
+            "threshold": 0.4,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          },
+          {
+            "id": "C5",
+            "sentence": "Live p95 triage latency stays at or below 1500 ms.",
+            "threshold": 1500,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          },
+          {
+            "id": "C6",
+            "sentence": "At least 90 percent of complaints only in unseen groups reach a person.",
+            "threshold": 0.9,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          },
+          {
+            "id": "C7",
+            "sentence": "Every bad release trips within 2000 canary complaints and the good release never trips.",
+            "threshold": 1,
+            "verdict": "not_shown",
+            "evidence": null,
+            "reason": "No qualifying promoted evaluation is available."
+          }
+        ],
+        "statement": "cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices."
+      },
+      "elapsed_ms": 200.94754599999476
+    }
+  },
+  "quality_claim": false,
+  "status": "passed",
+  "workflow_run": "https://github.com/mekala27-45/cutover/actions/runs/42433532858",
+  "deployment": "https://cutover-h77imel3y-mekala27-45s-projects.vercel.app"
+}

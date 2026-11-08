@@ -1,0 +1,28 @@
+{
+  "mode": "actual_independent_database_read",
+  "role": "owner_via_separate_connector",
+  "rows": [
+    {
+      "receipt_id": "1818447c-5714-4d79-9dd9-417f548f1b9a",
+      "text_digest": "b6eec359dde3f6f24146561c92f6790f8fcb7c909bedc2bb6db6a5e32d5ef9c7",
+      "release_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
+      "release_version": "1",
+      "action": "send_to_analyst",
+      "reason": "safety_keyword",
+      "created_at": "2026-11-08T01:16:35.966Z"
+    },
+    {
+      "receipt_id": "4a7eed5b-fea0-4eb7-997d-9c9d7f8e8fb5",
+      "text_digest": "468cbff60f89cf09b63b71cbb6678ffaf3baeff9a759af0f7100cd73cea64739",
+      "release_digest": "3864ffec43ebcee744919810e028bed0494724654c9b779c5bceab929168e7ab",
+      "release_version": "1",
+      "action": "send_to_analyst",
+      "reason": "model_unavailable",
+      "created_at": "2026-11-08T01:16:35.489Z"
+    }
+  ],
+  "limitations": [
+    "Authored smoke requests only.",
+    "No fitted model or live kill-switch drill is established."
+  ]
+}

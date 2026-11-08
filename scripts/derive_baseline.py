@@ -88,7 +88,8 @@ def derive(root: Path) -> None:
         "This report is derived by scripts/derive_baseline.py from public_results/floor.json.",
         "It describes the floor, not the encoder, language-model arms or live API.",
         "",
-        "| Split | Complaints | Queue hit | Queue hit 95% interval | Safety recall | Review share |",
+        "| Split | Complaints | Queue hit | Queue hit 95% interval | "
+        "Safety recall | Review share |",
         "| --- | ---: | ---: | --- | ---: | ---: |",
     ]
     for split, report in sorted(floor["reports"].items()):
@@ -114,11 +115,14 @@ def derive(root: Path) -> None:
         "above the registered 40% load target. This operating point is not ready for release.",
         "The shipped-system C1-C7 verdicts remain not shown because its required arms are absent.",
         "",
-        "The runner discarded private per-case records and model weights after exporting aggregates.",
-        "Aggregate results cannot reproduce paired arm comparisons, new slices or the trained model.",
+        "The runner discarded private per-case records and model weights "
+        "after exporting aggregates.",
+        "Aggregate results cannot reproduce paired arm comparisons, new "
+        "slices or the trained model.",
         "A future complete run must preserve those in an approved private artifact destination.",
         "",
-        "No p95 latency, inference-only throughput, cost saving or ROI is inferred from total run time.",
+        "No p95 latency, inference-only throughput, cost saving or ROI is "
+        "inferred from total run time.",
         f"Source commit: {floor['source_commit']}.",
         f"Workflow: {manifest['baseline']['workflow_run']}.",
     ]

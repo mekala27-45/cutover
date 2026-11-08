@@ -1,5 +1,5 @@
 {
-  "attempt": 4,
+  "attempt": 5,
   "source_run": 42118098139,
-  "purpose": "verify_immutable_fixed_deployment_without_alias_propagation_race"
+  "purpose": "bounded_24_request_open_loop_load_with_independent_receipt_verification"
 }

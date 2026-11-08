@@ -63,3 +63,18 @@ The previously unavailable Kaggle editor loaded and a T4 session started. Modern
 
 ## 2026-11-05: local execution interruption
 The local terminal rejected the runtime's Windows sandbox path configuration and the browser process could not restart. Remote GitHub connectors remained usable. Verified sources and evidence were preserved through GitHub; no unobserved GPU result or successful live receipt was claimed.
+
+## 2026-11-07: pooled connection startup parameters
+Live diagnostics identified an unsupported startup parameter. The runtime now sets statement_timeout with SET LOCAL after opening a transaction. It does not weaken TLS or expand database permissions. Independent receipt reads confirm that the corrected path commits both authored requests.
+
+## 2026-11-07: release reads without write privileges
+SELECT FOR SHARE would require write privileges on the release table. Ordinary SELECT now captures the release version used by the request; the same version is written into its receipt. The runtime still cannot mutate release state.
+
+## 2026-11-07: aggregate evidence recovery
+The completed floor artifacts were recovered by a read-only Actions workflow, checked against the frozen source and registration digests, and rendered by scripts/derive_baseline.py. Raw narratives and per-case records were not recovered or published. Full model and paired comparisons remain unavailable.
+
+## 2026-11-07: immutable deployment verification
+Production alias propagation briefly returned different serving revisions across requests. The smoke verification targets the exact immutable fixed deployment and records its commit. A separate production load and browser check verifies the public domain after propagation.
+
+## 2026-11-07: browser runner compatibility
+The pinned Playwright version does not support the newly selected ubuntu-latest image. The browser job uses ubuntu-24.04 explicitly; the dependency version and test assertions are unchanged.
