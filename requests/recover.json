@@ -1,5 +1,5 @@
 {
-  "attempt": 3,
+  "attempt": 4,
   "source_run": 42118098139,
-  "purpose": "verify_pooler_compatible_transaction_and_durable_receipts"
+  "purpose": "verify_immutable_fixed_deployment_without_alias_propagation_race"
 }

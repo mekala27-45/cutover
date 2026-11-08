@@ -26,6 +26,9 @@ jobs:
           path: recovered
       - run: python scripts/recover_evidence.py
       - run: python scripts/smoke_live.py
+        env:
+          CUTOVER_API_BASE: https://cutover-h77imel3y-mekala27-45s-projects.vercel.app
+          CUTOVER_EXPECTED_COMMIT: 0be1cddd03ab4fd0f93aa43b3a3f4caeee055aff
       - uses: actions/upload-artifact@v4
         if: always()
         with:

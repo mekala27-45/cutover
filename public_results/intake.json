@@ -1,0 +1,41 @@
+{
+  "mode": "actual_nhtsa_intake",
+  "sources": [
+    {
+      "bytes": 75874139,
+      "sha256": "02fc008f8d366e6a748c13e9c5eae7cc4a14a191e986471e9545ef2d7fefc58d",
+      "url": "https://static.nhtsa.gov/odi/ffdd/cmpl/COMPLAINTS_RECEIVED_2020-2024.zip"
+    },
+    {
+      "bytes": 43421540,
+      "sha256": "4021440afb0a36e639baffe1488923c5e36b8cbc54d0c3760d71e07a238c0db3",
+      "url": "https://static.nhtsa.gov/odi/ffdd/cmpl/COMPLAINTS_RECEIVED_2025-2026.zip"
+    }
+  ],
+  "layout_document_sha256": "84585b4ded99b0c45abc4a5dc86f85332ba0a6969d2d7d9b1247f10fc53e8f45",
+  "layouts_seen": {
+    "51": 618446
+  },
+  "counts": {
+    "development": 32662,
+    "discovery": 58084,
+    "shadow": 65761,
+    "test": 103889,
+    "train": 162629
+  },
+  "dropped": {
+    "component_rows_grouped": 188730,
+    "invalid_allowed_field": 1,
+    "narrative_length": 2982,
+    "non_vehicle": 8639
+  },
+  "duplicate_count": 6691,
+  "label_mapping_digest": "4829efe22a4995b10b81d145baea66ff8a666f3f016af0ca3788e1f06f463f4f",
+  "split_digests": {
+    "development": "dfb671de841d3c704034d9f2888e64313a25725a72730dc1c8f096a1155eacd4",
+    "discovery": "ab5f61b0196f681bd6dda2c6e79f23ff20035a90ab3b68abb54258870dfd4e06",
+    "shadow": "445c85bcab752841445c36f6b8d27b9e01ede0af5348cd2af706b7cb750f0b24",
+    "test": "24c492953e1c8534465385466ab27bfd51052ad9fdc5ac863da50efaaf1cc5b5",
+    "train": "11fb6a5c9714ce461118c37434b72663a3219c28f062d5ae4f7a61be441d4d14"
+  }
+}

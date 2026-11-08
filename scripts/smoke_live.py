@@ -7,8 +7,8 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-BASE = "https://cutover-api.vercel.app"
-EXPECTED = os.environ["GITHUB_SHA"]
+BASE = os.getenv("CUTOVER_API_BASE", "https://cutover-api.vercel.app")
+EXPECTED = os.getenv("CUTOVER_EXPECTED_COMMIT", os.environ["GITHUB_SHA"])
 
 
 def request(path: str, payload: dict | None = None) -> dict:
