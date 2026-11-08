@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import hmac
 import logging
-import re
 import os
+import re
 import uuid
 from typing import Any
 
@@ -32,9 +32,27 @@ def client_digest(address: str) -> str:
 def log_storage_failure(operation: str, exc: Exception) -> None:
     state = getattr(exc, "sqlstate", None)
     safe_state = state if isinstance(state, str) and re.fullmatch(r"[A-Z0-9]{5}", state) else None
+    # Inspect text in memory only; emit fixed categories, never exception text.
+    message = str(exc).lower()
+    category = "unclassified"
+    for token, name in [
+        ("password authentication failed", "authentication"),
+        ("unsupported startup parameter", "startup_parameter"),
+        ("invalid connection option", "connection_option"),
+        ("could not translate host name", "dns"),
+        ("name or service not known", "dns"),
+        ("connection timeout", "timeout"),
+        ("timeout expired", "timeout"),
+        ("certificate verify failed", "tls_certificate"),
+        ("endpoint is disabled", "endpoint_disabled"),
+        ('missing "="', "dsn_syntax"),
+    ]:
+        if token in message:
+            category = name
+            break
     logging.getLogger(__name__).error(
-        "storage_failure operation=%s type=%s sqlstate=%s",
-        operation, type(exc).__name__, safe_state,
+        "storage_failure operation=%s type=%s sqlstate=%s category=%s",
+        operation, type(exc).__name__, safe_state, category,
     )
 
 
