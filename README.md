@@ -13,18 +13,18 @@ The original specification is in [docs/SPEC.md](docs/SPEC.md). Criteria and the 
 | Capability | Implementation | Evidence state |
 | --- | --- | --- |
 | Strict decision contracts | packages/core | Behavioral tests passing |
-| Privacy boundary and temporal intake | packages/intake | Actual intake still running |
-| TF-IDF training and calibration | packages/floor | Synthetic fit and round-trip tested |
+| Privacy boundary and temporal intake | packages/intake | Actual aggregate intake and split digests recovered |
+| TF-IDF training and calibration | packages/floor | Actual test and shadow results published |
 | Model output validation | packages/llm | Parser tested; model runs absent |
-| Safety and escalation | packages/cascade | Property tests passing; real thresholds pending |
-| Independent scoring and shadow prices | packages/evaluation | Tested mechanics; actual comparisons pending |
+| Safety and escalation | packages/cascade | Property tests passing; floor development thresholds saved |
+| Independent scoring and shadow prices | packages/evaluation | Floor measured; full paired comparisons pending |
 | Rollback and monitoring | packages/release | Synthetic tests; real drill pending |
-| Transactional receipts | packages/api | Transaction tests; live credentials pending |
+| Transactional receipts | packages/api | HTTP receipts independently matched to database rows |
 | Evidence sheet | web | Published and checked in a real browser |
 
 ## Run
 
-Use Python 3.12. Install with `pip install -e '.[dev]'`, then run `python scripts/register.py --check`, `pytest`, and `python scripts/check_gates.py`.
+Use Python 3.12. Install with `pip install -e '.[analysis,dev]'`, then run `python scripts/register.py --check`, `pytest`, and `python scripts/check_gates.py`.
 
 The actual source and floor run is requested through the data workflow. It downloads public sources, drops personal fields before writing, constructs temporal splits, selects registered samples and trains the TF-IDF floor. It does not claim encoder or language model results.
 

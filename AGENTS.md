@@ -1,6 +1,6 @@
 # Working on Cutover
 
-Read docs/SPEC.md and DECISIONS.md before changing behavior. Set up Python 3.12 with pip install -e '.[dev]'. Run pytest and python scripts/check_gates.py. Build the web app with npm install and npm run build from web.
+Read docs/SPEC.md and DECISIONS.md before changing behavior. Set up Python 3.12 with pip install -e '.[analysis,dev]'. Run pytest and python scripts/check_gates.py. Build the web app with npm install and npm run build from web.
 
 Treat config/criteria.yaml, config/plan.json and evaluation/registration.json as frozen. Change them only through a dated change request showing old and new values and preserving earlier verdicts. Never alter a promoted result, source lock or sealed test to improve a score.
 

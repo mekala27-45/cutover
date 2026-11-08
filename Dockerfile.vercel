@@ -4,6 +4,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY packages packages
 COPY evaluation evaluation
+COPY config config
 COPY public_results/manifest.json public_results/manifest.json
 COPY app.py .
 EXPOSE 80

@@ -78,3 +78,9 @@ Production alias propagation briefly returned different serving revisions across
 
 ## 2026-11-07: browser runner compatibility
 The pinned Playwright version does not support the newly selected ubuntu-latest image. The browser job uses ubuntu-24.04 explicitly; the dependency version and test assertions are unchanged.
+
+## 2026-11-07: separate deployment and analysis dependencies
+
+A fresh production invocation failed while extracting SciPy and PyArrow because temporary disk space was exhausted. These training libraries are not imported by guard-only serving. They now belong to the analysis extra, while the deployment installs the pinned base API dependencies. An isolated CI environment checks that serving imports and health work without analysis libraries. This reverses the original single dependency set; model promotion will need its own measured serving bundle.
+
+Vercel dependency guidance: https://vercel.com/docs/functions/runtimes/python

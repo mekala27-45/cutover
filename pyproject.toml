@@ -5,12 +5,15 @@ description = "Evidence-bound vehicle complaint triage and release evaluation"
 requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"
 dependencies = [
-  "pydantic>=2.12,<3", "fastapi==0.162.0", "uvicorn==0.54.0",
-  "scikit-learn==1.9.1", "numpy>=2.2,<3", "scipy>=1.15,<2",
-  "psycopg[binary]>=3.2,<4", "httpx>=0.28,<1", "jinja2>=3.1,<4",
-  "datasketch>=1.6,<2", "openpyxl>=3.1,<4", "pyarrow>=19,<25"
+  "pydantic==2.14.3", "fastapi==0.162.0", "uvicorn==0.54.0",
+  "psycopg[binary]==3.3.8"
 ]
 [project.optional-dependencies]
+analysis = [
+  "scikit-learn==1.9.1", "numpy>=2.2,<3", "scipy>=1.15,<2",
+  "httpx>=0.28,<1", "jinja2>=3.1,<4", "datasketch>=1.6,<2",
+  "openpyxl>=3.1,<4", "pyarrow>=19,<25"
+]
 encoder = ["sentence-transformers==6.2.0", "onnxruntime==1.31.1", "onnx>=1.18,<2", "transformers==5.22.1"]
 dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "hypothesis>=6,<7", "ruff>=0.14,<1", "mypy>=1.18,<2", "types-openpyxl", "nbmake==1.5.5", "ipykernel>=6,<8"]
 [tool.pytest.ini_options]

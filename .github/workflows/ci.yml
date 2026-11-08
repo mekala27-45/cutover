@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install -e '.[dev]'
+      - run: pip install -e '.[analysis,dev]'
       - run: mkdir -p results
       - run: python scripts/register.py --check
       - run: python -m pytest --cov=packages --cov-fail-under=80 --cov-report=json --junitxml=results/tests.xml
@@ -43,3 +43,14 @@ jobs:
             results/ruff.json
             results/mypy.txt
             coverage.json
+  runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m venv /tmp/cutover-runtime
+      - run: /tmp/cutover-runtime/bin/pip install .
+      - run: /tmp/cutover-runtime/bin/python -m scripts.verify_runtime

@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install -e '.[dev]'
+      - run: pip install -e '.[analysis,dev]'
       - run: python scripts/register.py --check
       - run: python -m pytest -q
       - run: python -m scripts.fetch_complaints
