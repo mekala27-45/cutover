@@ -29,3 +29,18 @@ Use Python 3.12. Install with `pip install -e '.[dev]'`, then run `python script
 The actual source and floor run is requested through the data workflow. It downloads public sources, drops personal fields before writing, constructs temporal splits, selects registered samples and trains the TF-IDF floor. It does not claim encoder or language model results.
 
 cutover is a portfolio demonstration. Its customer is fictional, and public NHTSA vehicle complaints stand in for that customer inbox. It is not affiliated with NHTSA or any vehicle maker, it makes no safety determination, and it is not for safety, legal or regulatory use. It never closes a complaint: it routes one to a team or sends it to a person. Its costs are shadow prices from public list prices.
+
+## Evidence matrix
+
+| Stage | Available evidence | Remaining work |
+| --- | --- | --- |
+| Intake | public_results/intake.json, frozen source digests | Private sample provenance audit, complete discovery |
+| Floor | public_results/floor.json, report/baseline.md | Full comparative evaluation and private artifact retention |
+| Encoder | public_results/encoder-probe.json | Fine-tuning, calibration, ONNX and INT8 parity |
+| Language models | Reproducible Kaggle probe scripts | Probe recovery, registered sample inference and injection tests |
+| Live service | public_results/live-smoke.json and independent-receipts.json | Trained model, live canary and workflow-controlled switch drill |
+| Investigation | notebooks/ with reproducible dead ends and evidence audits | Full model investigations after training |
+
+Run the notebooks with `pytest --nbmake notebooks`. They audit authored fixtures and saved actual evidence; they do not silently rerun a model or substitute synthetic performance.
+
+See [RESULTS.md](RESULTS.md) for all mandatory completion lines.

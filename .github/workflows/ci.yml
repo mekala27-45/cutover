@@ -22,6 +22,7 @@ jobs:
       - run: mkdir -p results
       - run: python scripts/register.py --check
       - run: python -m pytest --cov=packages --cov-fail-under=80 --cov-report=json --junitxml=results/tests.xml
+      - run: python -m pytest --nbmake notebooks --nbmake-timeout=60
       - run: python scripts/check_gates.py
       - run: ruff check packages scripts tests
       - run: mypy packages --strict

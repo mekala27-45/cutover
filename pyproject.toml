@@ -12,7 +12,7 @@ dependencies = [
 ]
 [project.optional-dependencies]
 encoder = ["sentence-transformers==6.2.0", "onnxruntime==1.31.1", "onnx>=1.18,<2", "transformers==5.22.1"]
-dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "hypothesis>=6,<7", "ruff>=0.14,<1", "mypy>=1.18,<2", "types-openpyxl"]
+dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "hypothesis>=6,<7", "ruff>=0.14,<1", "mypy>=1.18,<2", "types-openpyxl", "nbmake==1.5.5", "ipykernel>=6,<8"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
