@@ -60,6 +60,9 @@ test("a first 503 wakes cleanly and persistent failure never claims a receipt",a
 });
 
 test("published API returns a durable receipt through the browser",async({page})=>{
+ const health=await page.request.get("https://cutover-api.vercel.app/health");
+ expect(health.status()).toBe(200);
+ expect((await health.json()).model_ready).toBe(false);
  await page.goto("https://mekala27-45.github.io/cutover/try/");
  await page.getByLabel("Complaint narrative").fill("Authored browser verification: the dashboard clock loses its saved time.");
  const response=page.waitForResponse(r=>r.url().endsWith("/v1/triage")&&r.status()===200);

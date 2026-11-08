@@ -27,8 +27,8 @@ jobs:
       - run: python scripts/recover_evidence.py
       - run: python scripts/smoke_live.py
         env:
-          CUTOVER_API_BASE: https://cutover-h77imel3y-mekala27-45s-projects.vercel.app
-          CUTOVER_EXPECTED_COMMIT: 0be1cddd03ab4fd0f93aa43b3a3f4caeee055aff
+          CUTOVER_API_BASE: https://cutover-p32kgidmo-mekala27-45s-projects.vercel.app
+          CUTOVER_EXPECTED_COMMIT: 2a842be023a972312eef5552541806252f3b616d
       - run: python scripts/load_live.py
       - uses: actions/upload-artifact@v4
         if: always()

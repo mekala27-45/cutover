@@ -1,5 +1,5 @@
 {
-  "attempt": 5,
+  "attempt": 6,
   "source_run": 42118098139,
-  "purpose": "bounded_24_request_open_loop_load_with_independent_receipt_verification"
+  "purpose": "verify_minimal_runtime_deployment_and_repeat_bounded_live_load"
 }

@@ -25,7 +25,7 @@ See report/baseline.md for the generated floor metrics and their limits. public_
 | 13 | not done | Persistence, load and live switch | Independent receipts and bounded guard-only load are verified; model cold start and the live switch drill are missing. |
 | 14 | not done | Handover pack | The baseline report and updated runbook exist; complete model cards, validation reports and analyst workbook remain missing. |
 | 15 | not done | Full manifest rederivation | The baseline report and manifest rederive without drift in tests; all-arm inputs are not available. |
-| 16 | not done | Live site and browser verification | The browser suite covers routes, mobile layout, wake/error behavior and a live receipt; the final rerun must pass before this line is closed. |
+| 16 | not done | Live site and browser verification | public_results/browser-verification.json records all browser tests passing, including the live receipt; an actual sleeping-service check remains unobserved. |
 | 17 | done | Documentation and investigations | README evidence matrix, dated decisions, three executed investigation notebooks, AGENTS, skills, SPEC and ADRs are present. |
 | 18 | not done | Release quality and completion tag | Software tests, notebooks, coverage, Ruff and strict typing pass; full release provenance, palette/skills checks and the final tag remain outstanding. |
 

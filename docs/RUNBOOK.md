@@ -22,7 +22,7 @@ Before model promotion, obtain actual encoder and language-model evaluation, par
 
 ## Reproduction
 
-Install Python 3.12 dependencies. Run registration checks, pytest with coverage, Ruff, strict mypy and the notebooks through nbmake. scripts/derive_baseline.py deterministically rebuilds the baseline report and both manifest copies from the frozen aggregate evidence. Never relabel that floor evidence as an encoder or cascade result.
+Install Python 3.12 dependencies with `pip install -e '.[analysis,dev]'` for analysis and tests. Production installs only the base API dependencies. The isolated runtime CI job rejects accidental installation of analysis libraries, after a real startup disk exhaustion failure. Check health on a fresh deployment even when its build says ready. Run registration checks, pytest with coverage, Ruff, strict mypy and the notebooks through nbmake. scripts/derive_baseline.py deterministically rebuilds the baseline report and both manifest copies from the frozen aggregate evidence. Never relabel that floor evidence as an encoder or cascade result.
 
 The data workflow drops disallowed fields before disk writes. Only aggregate output leaves its runner. Private fitted weights and per-case records from the completed baseline run were discarded. New paired comparisons require a fresh run and an approved private artifact destination.
 
